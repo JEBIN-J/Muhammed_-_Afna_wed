@@ -2281,8 +2281,8 @@
     </svg>
 
     <!-- Couple Images -->
-    <img src="images/WhatsApp Image 2026-06-10 at 18.00.05-Photoroom.png" alt="Bride" class="env-char env-char-left" id="charLeft">
-    <img src="images/WhatsApp Image 2026-06-10 at 23.33.26-Photoroom.png" alt="Groom" class="env-char env-char-right" id="charRight">
+    <img src="images/WhatsApp Image 2026-06-10 at 23.33.26-Photoroom.png" alt="Groom" class="env-char env-char-left" id="charLeft">
+    <img src="images/WhatsApp Image 2026-06-10 at 18.00.05-Photoroom.png" alt="Bride" class="env-char env-char-right" id="charRight">
 
     <div class="env-wrapper">
       <div class="env-box" id="envBox">
@@ -2430,7 +2430,7 @@
     <div class="music-bar" id="musicBar">
       <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
         <span>♪</span>
-        <span id="musicBtnText">Play Music</span>
+        <span id="musicBtnText">Welcome</span>
       </button>
       <div class="music-waves">
         <div class="wave-bar"></div>
@@ -2470,14 +2470,14 @@
         <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 25px;">"Peace, mercy, and blessings of Allah be upon you"</div>
         <h2 class="quote-title">Wedding Invitation</h2>
         <div class="quote-host">
-          <strong>Mr. Abdul Jaleel M. &amp; Mrs. Shophida Beegum</strong><br>
-          <span class="host-sub">PMS House, TK Nagar, Kuthirakulam P.O, Vembayam</span>
+          <strong>Mr. M. Abdul Jaleel &amp; Mrs. Shophida Beegum</strong><br>
+          <span class="host-sub">M. S. House, T. K. Nagar, Kuthirakulam P. O., Vembayam<br>Mob: 9048103208</span>
         </div>
         <div class="quote-text">
           cordially request the honour of your presence with family on the auspicious occasion of the marriage of their son
         </div>
         <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; margin-top: 15px; font-family: 'Great Vibes', cursive;">
-          Muhammed I.S
+          Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 16px; margin: 5px 0;">
           with
@@ -2486,7 +2486,7 @@
           Afna H.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
-          (D/o Mr. A. Abdul Jabbar &amp; Mrs. Haleema N.<br>Beema Manzil, TC 35/1101, Valiyavila, Vattiyoorkavu P.O, Thiruvananthapuram)
+          (D/o. Mr. A. Abdul Jabbar &amp; Mrs. Haleema N<br>Beema Manzil, Valiyavila, Vattiyoorkavu P. O., TVM)
         </div>
         <div class="quote-text" style="font-weight: 600; margin-top: 15px; font-size: 15px;">
           Insha Allah
@@ -2507,7 +2507,13 @@
             <div class="dc-ico">🕌</div>
             <div class="dc-lbl">Sunday</div>
             <div class="dc-val">Nikah Ceremony</div>
-            <div class="dc-sub">19 July 2026 · 11:30 AM - 12:30 PM<br>Alakapuri Convention Centre, Sasthamangalam</div>
+            <div class="dc-sub">19 July 2026 (1448 Safar 4) · 11:30 AM - 12:30 PM<br>Alakapuri Convention Centre, Sasthamangalam</div>
+          </div>
+          <div class="detail-card rv">
+            <div class="dc-ico">🚗</div>
+            <div class="dc-lbl">Departure</div>
+            <div class="dc-val">Departure Time</div>
+            <div class="dc-sub">10:30 AM</div>
           </div>
           <div class="detail-card rv" style="border-top-color: #8b0000; background: rgba(139, 0, 0, 0.05);">
             <div class="dc-ico" style="color: #8b0000;">🚫</div>
@@ -2558,10 +2564,10 @@
           with
         </div>
         <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; font-family: 'Great Vibes', cursive;">
-          Muhammed I.S
+          Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
-          (S/o Mr. Abdul Jaleel M. &amp; Mrs. Shophida Beegum<br>PMS House, TK Nagar, Kuthirakulam P.O, Vembayam)
+          (S/o Mr. M. Abdul Jaleel &amp; Mrs. Shophida Beegum<br>M. S. House, T. K. Nagar, Kuthirakulam P. O., Vembayam)
         </div>
         <div class="quote-text" style="font-weight: 600; margin-top: 15px; font-size: 15px;">
           Insha Allah
@@ -2605,7 +2611,7 @@
           <div class="tag">With Best Compliments From</div>
           <h2>Our Beloved Family</h2>
         </div>
-        <div class="quote-text" style="font-style: normal; font-size: clamp(18px, 5vw, 22px);">
+        <div class="quote-text" id="bestComplimentsText" style="font-style: normal; font-size: clamp(18px, 5vw, 22px);">
           Jasmine &amp; Amal
         </div>
       </div>
@@ -3182,10 +3188,14 @@
             groomFlow.classList.remove('hidden');
             brideFlow.classList.add('hidden');
             weddingDate = new Date('2026-07-19T11:30:00');
+            const compEl = document.getElementById('bestComplimentsText');
+            if (compEl) compEl.innerHTML = 'Khaleef J. S &amp; Khalid J. S.';
           } else {
             brideFlow.classList.remove('hidden');
             groomFlow.classList.add('hidden');
             weddingDate = new Date('2026-07-19T11:30:00');
+            const compEl = document.getElementById('bestComplimentsText');
+            if (compEl) compEl.innerHTML = 'Jasmine &amp; Amal';
           }
 
           // Reset scroll position and trigger reveals
