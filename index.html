@@ -10,17 +10,17 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #05180e;
-      --bg-card: #082918;
-      --emerald: #ffd700;
-      --sage: #d4af37;
-      --mint: #e2ca86;
-      --gold: #d4af37;
-      --gold-light: #f3e5ab;
-      --cream: #fffdf6;
-      --white: #082918;
-      --text-dark: #fffdf6;
-      --text-muted: #a8cfb5;
+      --bg-dark: #fafcfa;
+      --bg-card: #ffffff;
+      --emerald: #0c3c24;
+      --sage: #4a7c59;
+      --mint: #eef5f1;
+      --gold: #b5945b;
+      --gold-light: #a38244;
+      --cream: #113821;
+      --white: #ffffff;
+      --text-dark: #113821;
+      --text-muted: #4a6e56;
     }
 
     *,
@@ -149,13 +149,15 @@
       max-width: 520px;
       width: 100%;
       margin: 0 auto;
-      background: rgba(9, 43, 27, 0.98);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(2px);
       position: relative;
       z-index: 1;
       animation: pageIn .9s ease both;
       overflow-x: hidden;
-      box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 100px rgba(17, 56, 33, 0.08);
+      border-left: 1px solid rgba(17, 56, 33, 0.05);
+      border-right: 1px solid rgba(17, 56, 33, 0.05);
     }
 
     .page::before {
@@ -174,7 +176,7 @@
       width: 120px;
       height: 120px;
       color: var(--gold);
-      opacity: 0.15;
+      opacity: 0.35;
       z-index: 2;
       pointer-events: none;
     }
@@ -213,10 +215,42 @@
       width: 450px;
       height: 450px;
       color: var(--gold);
-      opacity: 0.04;
+      opacity: 0.08;
       pointer-events: none;
       z-index: 0;
       transform-origin: center;
+    }
+
+    /* ── HANGING LANTERNS ── */
+    .hanging-lantern {
+      position: absolute;
+      top: -10px;
+      width: 50px;
+      height: 150px;
+      opacity: 0.7;
+      z-index: 10;
+      pointer-events: none;
+      transform-origin: top center;
+      animation: swayLantern 4s ease-in-out infinite alternate;
+      filter: drop-shadow(0 4px 8px rgba(181, 148, 91, 0.25));
+    }
+
+    .lantern-left {
+      left: 15px;
+    }
+
+    .lantern-right {
+      right: 15px;
+      animation-delay: -2s;
+    }
+
+    @keyframes swayLantern {
+      0% {
+        transform: rotate(-3deg);
+      }
+      100% {
+        transform: rotate(3deg);
+      }
     }
 
     .m1 {
@@ -454,7 +488,7 @@
 
     /* ── MUSIC BAR ── */
     .music-bar {
-      background: rgba(15, 33, 26, .85);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 12px 18px;
@@ -465,16 +499,16 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(116, 166, 141, .12);
+      border-bottom: 1px solid rgba(17, 56, 33, 0.08);
     }
 
     .music-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(116, 166, 141, .08);
-      border: 1px solid rgba(116, 166, 141, .25);
-      color: var(--sage);
+      background: rgba(17, 56, 33, .04);
+      border: 1px solid rgba(17, 56, 33, .15);
+      color: var(--cream);
       padding: 8px 16px;
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
@@ -489,8 +523,9 @@
 
     .music-btn:hover,
     .music-btn:active {
-      background: rgba(116, 166, 141, .18);
-      border-color: var(--sage);
+      background: rgba(17, 56, 33, .08);
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
 
     .music-waves {
@@ -737,7 +772,7 @@
       font-size: 24px;
       color: var(--gold);
       opacity: 0.8;
-      background: var(--bg-dark);
+      background: var(--bg-card);
       padding: 0 16px;
       position: relative;
       z-index: 1;
@@ -982,10 +1017,10 @@
       scroll-snap-stop: always;
       min-height: 70vh;
       margin: 0 clamp(16px, 5vw, 28px) clamp(20px, 5vw, 30px);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, rgba(240, 248, 243, 0.8), rgba(255, 255, 255, 0.95));
+      border: 1px solid rgba(17, 56, 33, 0.12);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 35px rgba(17, 56, 33, 0.06);
       backdrop-filter: blur(12px);
       text-align: center;
       display: flex;
@@ -1004,8 +1039,8 @@
 
     .form-input {
       width: 100%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: #ffffff;
+      border: 1px solid rgba(17, 56, 33, 0.15);
       border-radius: 8px;
       padding: 14px 16px;
       font-family: 'Montserrat', sans-serif;
@@ -1018,12 +1053,12 @@
 
     .form-input:focus {
       border-color: var(--gold);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(181, 148, 91, 0.2);
     }
 
     .form-input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(17, 56, 33, 0.4);
     }
 
     .rsvp-radio-group {
@@ -1052,8 +1087,8 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--cream);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: #ffffff;
+      border: 1px solid rgba(17, 56, 33, 0.15);
       border-radius: 8px;
       transition: all .3s;
     }
@@ -1061,8 +1096,8 @@
     .radio-label input:checked+.radio-text {
       background: var(--gold);
       border-color: var(--gold);
-      color: #051d12;
-      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      color: #ffffff;
+      box-shadow: 0 5px 15px rgba(181, 148, 91, 0.3);
     }
 
     .input-label {
@@ -1097,10 +1132,10 @@
     .wishes-section {
       margin: 0 clamp(16px, 5vw, 28px) clamp(30px, 7vw, 48px);
       padding: clamp(30px, 7vw, 48px) clamp(20px, 5vw, 32px);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(17, 56, 33, 0.1);
       border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 15px 35px rgba(17, 56, 33, 0.06);
       backdrop-filter: blur(10px);
     }
 
@@ -1144,8 +1179,8 @@
     }
 
     .qbtn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(17, 56, 33, 0.04);
+      border: 1px solid rgba(17, 56, 33, 0.12);
       color: var(--cream);
       padding: 10px 18px;
       font-family: 'Montserrat', sans-serif;
@@ -1161,11 +1196,11 @@
 
     .qbtn:hover,
     .qbtn:active {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(17, 56, 33, 0.1);
       border-color: var(--gold);
-      color: var(--gold-light);
+      color: var(--cream);
       transform: scale(.97);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(17, 56, 33, 0.08);
     }
 
     .type-label {
@@ -1179,8 +1214,8 @@
     .wish-textarea {
       width: 100%;
       min-height: clamp(100px, 24vw, 140px);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #ffffff;
+      border: 1px solid rgba(17, 56, 33, 0.15);
       border-radius: 20px;
       padding: 20px;
       font-family: 'Montserrat', sans-serif;
@@ -1193,17 +1228,17 @@
       transition: all .3s;
       -webkit-appearance: none;
       backdrop-filter: blur(5px);
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 2px 10px rgba(17, 56, 33, 0.03);
     }
 
     .wish-textarea:focus {
       border-color: var(--gold);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 15px rgba(200, 169, 110, 0.2), inset 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(181, 148, 91, 0.2);
     }
 
     .wish-textarea::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(17, 56, 33, 0.4);
     }
 
     .send-row {
@@ -1347,7 +1382,7 @@
       bottom: 25px;
       right: 25px;
       z-index: 15000;
-      background: rgba(14, 42, 26, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       padding: 8px 16px;
       border-radius: 30px;
@@ -1355,14 +1390,15 @@
       align-items: center;
       gap: 10px;
       border: 1px solid var(--gold);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(17, 56, 33, 0.1);
       cursor: pointer;
       transition: all 0.3s;
     }
 
     .music-control:hover {
       transform: scale(1.05);
-      background: rgba(36, 112, 72, 0.9);
+      background: rgba(240, 248, 243, 0.95);
+      border-color: var(--gold);
     }
 
     .music-control i {
@@ -1371,7 +1407,7 @@
     }
 
     .music-control span {
-      color: white;
+      color: var(--cream);
       font-size: 12px;
       font-weight: 500;
       letter-spacing: 1px;
@@ -1589,26 +1625,28 @@
       transform: translate(-50%, -15%);
       width: 62px;
       height: 62px;
-      background: radial-gradient(circle at 35% 30%, #d40000 0%, #8b0000 100%);
+      background: radial-gradient(circle at 35% 30%, #1b4d3e 0%, #0d2920 100%);
       border-radius: 50%;
       z-index: 7;
       box-shadow: 
-        0 8px 20px rgba(0,0,0,0.5), 
+        0 8px 20px rgba(0,0,0,0.3), 
         inset 0 0 12px rgba(0,0,0,0.5),
         2px 2px 2px rgba(255,255,255,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffd700;
-      font-family: 'Great Vibes', cursive;
-      font-size: 20px;
-      border: 1px solid rgba(139,0,0,0.8);
+      color: #dfb75c;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 2.5px;
+      border: 1.5px solid #dfb75c;
       cursor: pointer;
       transition: transform 0.4s, opacity 0.4s, box-shadow 0.3s;
     }
 
     .env-seal:hover {
-      box-shadow: 0 10px 28px rgba(139,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 28px rgba(27, 77, 62, 0.4), inset 0 0 10px rgba(0,0,0,0.4);
       transform: translate(-50%, -20%) scale(1.1);
     }
 
@@ -1646,8 +1684,10 @@
     }
 
     .env-card h4 {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(18px, 4.5vw, 26px);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 600;
+      letter-spacing: 1px;
       color: #247048;
       margin: 0;
       text-align: center;
@@ -1913,9 +1953,9 @@
       top: 50%;
       width: 50%;
       height: 32px;
-      background: linear-gradient(180deg, #d40000 0%, #8b0000 50%, #d40000 100%);
-      border-top: 2px solid #ffd700;
-      border-bottom: 2px solid #ffd700;
+      background: linear-gradient(180deg, #113f27 0%, #061c10 50%, #113f27 100%);
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
       transform: translateY(-50%);
       z-index: 6.5;
@@ -1939,9 +1979,9 @@
       left: 50%;
       width: 32px;
       height: 50%;
-      background: linear-gradient(90deg, #d40000 0%, #8b0000 50%, #d40000 100%);
-      border-left: 2px solid #ffd700;
-      border-right: 2px solid #ffd700;
+      background: linear-gradient(90deg, #113f27 0%, #061c10 50%, #113f27 100%);
+      border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
       box-shadow: 4px 0 8px rgba(0, 0, 0, 0.25);
       transform: translateX(-50%);
       z-index: 6.5;
@@ -2186,9 +2226,9 @@
     }
 
     .select-btn.groom:hover {
-      background: linear-gradient(135deg, var(--bg-card), rgba(13, 64, 41, 0.95));
+      background: linear-gradient(135deg, #ffffff, #eef5f1);
       border-color: var(--gold);
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 15px 35px rgba(17, 56, 33, 0.12);
     }
 
     .select-btn.bride {
@@ -2201,9 +2241,9 @@
     }
 
     .select-btn.bride:hover {
-      background: linear-gradient(135deg, var(--bg-card), rgba(13, 64, 41, 0.95));
+      background: linear-gradient(135deg, #ffffff, #eef5f1);
       border-color: var(--gold);
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 15px 35px rgba(17, 56, 33, 0.12);
     }
 
     @media (max-width: 480px) {
@@ -2262,20 +2302,20 @@
     <svg width="0" height="0" style="position:absolute;">
       <defs>
         <linearGradient id="gradTop" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:#104d2e;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#061e11;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#dfbe6b;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#a88132;stop-opacity:1" />
         </linearGradient>
         <linearGradient id="gradLeft" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#0e4529;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#051c10;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#edd087;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#b89547;stop-opacity:1" />
         </linearGradient>
         <linearGradient id="gradRight" x1="100%" y1="0%" x2="0%" y2="0%">
-          <stop offset="0%" style="stop-color:#0e4529;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#051c10;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#edd087;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#b89547;stop-opacity:1" />
         </linearGradient>
         <linearGradient id="gradBottom" x1="0%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" style="stop-color:#0a3b22;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#051a0f;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#cda852;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#8e6c21;stop-opacity:1" />
         </linearGradient>
       </defs>
     </svg>
@@ -2399,15 +2439,23 @@
     </div>
 
     <div class="ornament orn-tl">
-      <svg viewBox="0 0 100 100">
-        <path d="M0 0 L100 0 L100 5 L5 5 L5 100 L0 100 Z" />
-        <circle cx="15" cy="15" r="3" />
+      <svg viewBox="0 0 120 120">
+        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
       </svg>
     </div>
     <div class="ornament orn-tr">
-      <svg viewBox="0 0 100 100">
-        <path d="M0 0 L100 0 L100 5 L5 5 L5 100 L0 100 Z" />
-        <circle cx="15" cy="15" r="3" />
+      <svg viewBox="0 0 120 120">
+        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
       </svg>
     </div>
 
@@ -2445,6 +2493,33 @@
     <!-- FLOWS -->
     <div id="groomFlow" class="flow-container">
       <div class="hero">
+        <!-- Hanging Lanterns -->
+        <div class="hanging-lantern lantern-left">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+          </svg>
+        </div>
+        <div class="hanging-lantern lantern-right">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+          </svg>
+        </div>
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Muhammed</h1>
@@ -2464,6 +2539,13 @@
       </div>
 
       <div class="invite-quote-section rv">
+        <!-- Mosque Dome Silhouette Divider -->
+        <div style="text-align: center; margin-bottom: 24px; color: var(--gold); opacity: 0.85;">
+          <svg viewBox="0 0 100 30" width="100" height="30" style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
+            <path d="M 5,25 Q 25,25 35,18 Q 45,5 50,0 Q 55,5 65,18 Q 75,25 95,25" />
+            <circle cx="50" cy="-3.5" r="1.5" fill="currentColor" />
+          </svg>
+        </div>
         <div class="quote-deity" style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
         <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In the name of Allah, the Most Gracious, the Most Merciful"</div>
         <div class="quote-deity" style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة الله وبركاته</div>
@@ -2476,13 +2558,13 @@
         <div class="quote-text">
           cordially request the honour of your presence with family on the auspicious occasion of the marriage of their son
         </div>
-        <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; margin-top: 15px; font-family: 'Great Vibes', cursive;">
+        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 16px; margin: 5px 0;">
           with
         </div>
-        <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; font-family: 'Great Vibes', cursive;">
+        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Afna H.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
@@ -2515,8 +2597,8 @@
             <div class="dc-val">Departure Time</div>
             <div class="dc-sub">10:30 AM</div>
           </div>
-          <div class="detail-card rv" style="border-top-color: #8b0000; background: rgba(139, 0, 0, 0.05);">
-            <div class="dc-ico" style="color: #8b0000;">🚫</div>
+          <div class="detail-card rv" style="border-top-color: #a65151; background: rgba(166, 81, 81, 0.05);">
+            <div class="dc-ico" style="color: #a65151; background: rgba(166, 81, 81, 0.05);">🚫</div>
             <div class="dc-val">Important Note</div>
             <div class="dc-sub">No Reception on the day before.</div>
           </div>
@@ -2526,6 +2608,33 @@
 
     <div id="brideFlow" class="flow-container hidden">
       <div class="hero">
+        <!-- Hanging Lanterns -->
+        <div class="hanging-lantern lantern-left">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+          </svg>
+        </div>
+        <div class="hanging-lantern lantern-right">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+          </svg>
+        </div>
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Afna</h1>
@@ -2545,6 +2654,13 @@
       </div>
 
       <div class="invite-quote-section rv">
+        <!-- Mosque Dome Silhouette Divider -->
+        <div style="text-align: center; margin-bottom: 24px; color: var(--gold); opacity: 0.85;">
+          <svg viewBox="0 0 100 30" width="100" height="30" style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
+            <path d="M 5,25 Q 25,25 35,18 Q 45,5 50,0 Q 55,5 65,18 Q 75,25 95,25" />
+            <circle cx="50" cy="-3.5" r="1.5" fill="currentColor" />
+          </svg>
+        </div>
         <div class="quote-deity" style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
         <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In the name of Allah, the Most Gracious, the Most Merciful"</div>
         <div class="quote-deity" style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة الله وبركاته</div>
@@ -2557,13 +2673,13 @@
         <div class="quote-text">
           request the honour of your presence with family on the auspicious occasion of the marriage of our daughter
         </div>
-        <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; margin-top: 15px; font-family: 'Great Vibes', cursive;">
+        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Afna H.
         </div>
         <div class="quote-text" style="font-size: 16px; margin: 5px 0;">
           with
         </div>
-        <div class="quote-text" style="font-size: 22px; font-weight: bold; color: #ff1493; font-family: 'Great Vibes', cursive;">
+        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
@@ -2590,8 +2706,8 @@
             <div class="dc-val">Nikah Ceremony</div>
             <div class="dc-sub">19 July 2026 · 11:30 AM - 12:30 PM<br>Alakapuri Convention Centre, Sasthamangalam</div>
           </div>
-          <div class="detail-card rv" style="border-top-color: #8b0000; background: rgba(139, 0, 0, 0.05);">
-            <div class="dc-ico" style="color: #8b0000;">🚫</div>
+          <div class="detail-card rv" style="border-top-color: #a65151; background: rgba(166, 81, 81, 0.05);">
+            <div class="dc-ico" style="color: #a65151; background: rgba(166, 81, 81, 0.05);">🚫</div>
             <div class="dc-val">Important Note</div>
             <div class="dc-sub">No Reception on the day before.</div>
           </div>
@@ -2757,8 +2873,26 @@
         <div class="footer-names">Afna <span class="amp">&amp;</span> Muhammed</div>
         <div class="footer-date">19 · 07 · 2026 &nbsp; · &nbsp; Thiruvananthapuram</div>
         <div class="footer-quote">Forever begins here</div>
-      </div>
-
+    <div class="ornament orn-bl">
+      <svg viewBox="0 0 120 120">
+        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="ornament orn-br">
+      <svg viewBox="0 0 120 120">
+        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
+      </svg>
+    </div>
     </div>
 
 
