@@ -2002,6 +2002,102 @@
       pointer-events: none;
     }
 
+    /* ── BUTTERFLY STYLING ── */
+    #butterfliesContainer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 12; /* Float in front of envelope wrapper but behind hearts */
+    }
+
+    .butterfly-mover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      transform: translate3d(var(--start-x), var(--start-y), 0) scale(var(--size, 1));
+      animation: flyPath var(--duration) linear infinite;
+      animation-delay: var(--delay);
+      opacity: 0;
+    }
+
+    .butterfly {
+      position: relative;
+      width: 16px;
+      height: 12px;
+      perspective: 100px;
+      transform-style: preserve-3d;
+      animation: flutterWave 2s ease-in-out infinite alternate;
+    }
+
+    .butterfly .wing {
+      position: absolute;
+      top: 0;
+      width: 8px;
+      height: 12px;
+      border-radius: 50% 50% 10% 40% / 40% 50% 30% 60%;
+      transform-origin: right center;
+    }
+
+    .butterfly .left-wing {
+      left: 0;
+      animation: flapLeft 0.12s infinite alternate ease-in-out;
+    }
+
+    .butterfly .right-wing {
+      right: 0;
+      transform: scaleX(-1);
+      transform-origin: left center;
+      animation: flapRight 0.12s infinite alternate ease-in-out;
+    }
+
+    /* Color Variants */
+    .bf-gold .wing {
+      background: radial-gradient(circle at center, #ffe8a3 0%, #b89547 100%);
+      box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+    }
+    .bf-rose .wing {
+      background: radial-gradient(circle at center, #ff7ba0 0%, #b3002d 100%);
+      box-shadow: 0 0 6px rgba(255, 42, 95, 0.8);
+    }
+    .bf-emerald .wing {
+      background: radial-gradient(circle at center, #a2ebd0 0%, #113f27 100%);
+      box-shadow: 0 0 6px rgba(17, 63, 39, 0.8);
+    }
+
+    @keyframes flapLeft {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(70deg); }
+    }
+
+    @keyframes flapRight {
+      0% { transform: scaleX(-1) rotateY(0deg); }
+      100% { transform: scaleX(-1) rotateY(70deg); }
+    }
+
+    @keyframes flutterWave {
+      0% { transform: translateY(0) translateX(-5px) rotate(-6deg); }
+      100% { transform: translateY(-10px) translateX(5px) rotate(6deg); }
+    }
+
+    @keyframes flyPath {
+      0% {
+        transform: translate3d(var(--start-x), var(--start-y), 0) scale(var(--size, 1)) rotate(var(--angle, 0deg));
+        opacity: 0;
+      }
+      10% {
+        opacity: var(--max-opacity);
+      }
+      90% {
+        opacity: var(--max-opacity);
+      }
+      100% {
+        transform: translate3d(var(--end-x), var(--end-y), 0) scale(var(--size, 1)) rotate(var(--angle, 0deg));
+        opacity: 0;
+      }
+    }
+
     /* Ribbon styles */
     .env-ribbon-h-left,
     .env-ribbon-h-right {
@@ -2350,6 +2446,9 @@
 
   <!-- ENVELOPE OVERLAY -->
   <div id="envelopeOverlay">
+    <!-- Flying Butterflies Background Container -->
+    <div id="butterfliesContainer"></div>
+
     <!-- SVG Defs for Gradients and Curves -->
     <svg width="0" height="0" style="position:absolute;">
       <defs>
@@ -3043,6 +3142,59 @@
           requestAnimationFrame(draw);
         }
         draw();
+      })();
+
+      // ── FLYING BUTTERFLIES BACKGROUND ──
+      (function () {
+        const container = document.getElementById('butterfliesContainer');
+        if (!container) return;
+
+        const count = 30; // Spawns 30 small butterflies
+        const colors = ['bf-gold', 'bf-rose', 'bf-emerald'];
+
+        for (let i = 0; i < count; i++) {
+          const mover = document.createElement('div');
+          mover.className = `butterfly-mover ${colors[Math.floor(Math.random() * colors.length)]}`;
+
+          // Randomize sizes and durations
+          const size = 0.6 + Math.random() * 0.5; // Scale: 0.6 to 1.1 (small size)
+          const duration = 9 + Math.random() * 8; // Duration: 9s to 17s (slow flying)
+          // Negative delay so they are already spread across the screen on load
+          const delay = -(Math.random() * duration);
+
+          // Randomize flight path (from bottom to top)
+          const startX = (10 + Math.random() * 80) + 'vw';
+          const endX = (parseFloat(startX) + (Math.random() * 30 - 15)) + 'vw';
+          const startY = '105vh';
+          const endY = '-15vh';
+          const maxOpacity = 0.3 + Math.random() * 0.4; // Subtle visibility (0.3 to 0.7)
+          const angle = (Math.random() * 30 - 15) + 'deg'; // Slight angle tilt
+
+          mover.style.setProperty('--start-x', startX);
+          mover.style.setProperty('--end-x', endX);
+          mover.style.setProperty('--start-y', startY);
+          mover.style.setProperty('--end-y', endY);
+          mover.style.setProperty('--size', size);
+          mover.style.setProperty('--duration', duration + 's');
+          mover.style.setProperty('--delay', delay + 's');
+          mover.style.setProperty('--max-opacity', maxOpacity);
+          mover.style.setProperty('--angle', angle);
+
+          // Create the butterfly element
+          const butterfly = document.createElement('div');
+          butterfly.className = 'butterfly';
+
+          const leftWing = document.createElement('div');
+          leftWing.className = 'wing left-wing';
+
+          const rightWing = document.createElement('div');
+          rightWing.className = 'wing right-wing';
+
+          butterfly.appendChild(leftWing);
+          butterfly.appendChild(rightWing);
+          mover.appendChild(butterfly);
+          container.appendChild(mover);
+        }
       })();
 
       // ── REVEAL ──
