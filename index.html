@@ -149,7 +149,7 @@
       max-width: 520px;
       width: 100%;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.98);
+      background: linear-gradient(180deg, #ffffff 0%, #f6faf7 35%, #fffdfa 70%, #ffffff 100%);
       backdrop-filter: blur(2px);
       position: relative;
       z-index: 1;
@@ -159,6 +159,54 @@
       border-left: 1px solid rgba(17, 56, 33, 0.05);
       border-right: 1px solid rgba(17, 56, 33, 0.05);
     }
+
+    /* Subtle background leaf watermarks inside the page */
+    .bg-leaf-watermark {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.038; /* Soft, delicate, non-intrusive green */
+      color: #0c3c24; /* Theme emerald green */
+      width: 140px;
+      height: 280px;
+    }
+
+    .leaf-w1 {
+      left: -20px;
+      top: 500px;
+      transform: rotate(15deg);
+    }
+
+    .leaf-w2 {
+      right: -25px;
+      top: 1200px;
+      transform: scaleX(-1) rotate(-15deg);
+    }
+
+    .leaf-w3 {
+      left: -25px;
+      top: 2000px;
+      transform: rotate(-10deg);
+    }
+
+    .leaf-w4 {
+      right: -20px;
+      top: 2800px;
+      transform: scaleX(-1) rotate(20deg);
+    }
+
+    /* Decorative border lines on left and right edges */
+    .page-border-line {
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      width: 1px;
+      z-index: 10;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 60, 36, 0.15) 15%, rgba(181, 148, 91, 0.22) 50%, rgba(12, 60, 36, 0.15) 85%, transparent 100%);
+    }
+    .p-line-left { left: 12px; }
+    .p-line-right { right: 12px; }
 
     .page::before {
       content: '';
@@ -1357,11 +1405,7 @@
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      color: #ffd700; /* Full bright metallic gold */
-      /* Crisp outline and shadow for maximum sharpness */
-      -webkit-text-stroke: 0.5px #9e7d3b;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 2px rgba(255, 215, 0, 0.5);
-      font-weight: bold;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
     }
 
     @keyframes sparkFly {
@@ -1370,18 +1414,13 @@
         opacity: 0;
       }
 
-      10% {
+      15% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1.4) rotate(45deg);
-      }
-
-      70% {
-        opacity: 1;
-        transform: translate(calc(-50% + var(--tx) * 0.75), calc(-50% + var(--ty) * 0.75)) scale(1) rotate(180deg);
+        transform: translate(-50%, -50%) scale(1.3) rotate(45deg);
       }
 
       100% {
-        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.1) rotate(270deg);
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.2) rotate(270deg);
         opacity: 0;
       }
     }
@@ -1721,10 +1760,29 @@
       opacity: 0.85;
       z-index: 2;
     }
-    .corner-tl { top: 12px; left: 12px; }
-    .corner-tr { top: 12px; right: 12px; transform: scaleX(-1); }
-    .corner-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
-    .corner-br { bottom: 12px; right: 12px; transform: scale(-1); }
+
+    .corner-tl {
+      top: 12px;
+      left: 12px;
+    }
+
+    .corner-tr {
+      top: 12px;
+      right: 12px;
+      transform: scaleX(-1);
+    }
+
+    .corner-bl {
+      bottom: 12px;
+      left: 12px;
+      transform: scaleY(-1);
+    }
+
+    .corner-br {
+      bottom: 12px;
+      right: 12px;
+      transform: scale(-1);
+    }
 
     /* Watermark Background Mandala */
     .card-watermark {
@@ -1756,7 +1814,8 @@
       font-size: clamp(22px, 5.5vw, 32px);
       font-weight: 500;
       letter-spacing: 1px;
-      color: #0c3c24; /* Rich emerald dark green */
+      color: #0c3c24;
+      /* Rich emerald dark green */
       margin: 0;
       text-align: center;
       line-height: 1.2;
@@ -2308,7 +2367,11 @@
       .magic-cursor-dot {
         display: none !important;
       }
-      body, a, button, [onclick] {
+
+      body,
+      a,
+      button,
+      [onclick] {
         cursor: auto !important;
       }
     }
@@ -2669,7 +2732,8 @@
               <g fill="none" stroke="#d4af37" stroke-width="1.2">
                 <circle cx="50" cy="50" r="28" stroke-dasharray="2,3" />
                 <circle cx="50" cy="50" r="22" />
-                <path d="M 50,22 C 46,28 42,28 38,32 C 32,38 32,42 22,50 C 32,58 32,62 38,68 C 42,72 46,72 50,78 C 54,72 58,72 62,68 C 68,62 68,58 78,50 C 68,42 68,38 62,32 C 58,28 54,28 50,22 Z" />
+                <path
+                  d="M 50,22 C 46,28 42,28 38,32 C 32,38 32,42 22,50 C 32,58 32,62 38,68 C 42,72 46,72 50,78 C 54,72 58,72 62,68 C 68,62 68,58 78,50 C 68,42 68,38 62,32 C 58,28 54,28 50,22 Z" />
                 <path d="M 30,30 Q 50,40 50,50 Q 40,50 30,30" />
                 <path d="M 70,30 Q 50,40 50,50 Q 60,50 70,30" />
                 <path d="M 30,70 Q 50,60 50,50 Q 40,50 30,70" />
@@ -2767,6 +2831,58 @@
   </div>
 
   <div class="page" id="mainPage">
+    <!-- Premium Green Leaf Watermarks -->
+    <svg class="bg-leaf-watermark leaf-w1" viewBox="0 0 100 200" fill="currentColor">
+      <path d="M10,190 Q30,120 15,10" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M15,10 C5,12 1,22 10,28 C19,25 21,15 15,10 Z" />
+      <path d="M13,35 C0,38 -4,50 6,58 C16,55 17,45 13,35 Z" />
+      <path d="M11,65 C-2,68 -5,80 4,88 C13,85 14,75 11,65 Z" />
+      <path d="M9,95 C-4,98 -7,110 2,118 C11,115 12,105 9,95 Z" />
+      <path d="M15,10 C25,12 30,22 20,28 C10,25 9,15 15,10 Z" />
+      <path d="M13,42 C26,45 30,57 20,65 C10,62 10,52 13,42 Z" />
+      <path d="M11,72 C24,75 28,87 18,95 C8,92 8,82 11,72 Z" />
+      <path d="M9,102 C22,105 26,117 16,125 C6,122 6,112 9,102 Z" />
+    </svg>
+
+    <svg class="bg-leaf-watermark leaf-w2" viewBox="0 0 100 200" fill="currentColor">
+      <path d="M90,190 Q70,120 85,10" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M85,10 C95,12 99,22 90,28 C81,25 79,15 85,10 Z" />
+      <path d="M87,35 C100,38 104,50 94,58 C84,55 83,45 87,35 Z" />
+      <path d="M89,65 C102,68 105,80 96,88 C87,85 86,75 89,65 Z" />
+      <path d="M91,95 C104,98 107,110 98,118 C89,115 88,105 91,95 Z" />
+      <path d="M85,10 C75,12 70,22 80,28 C90,25 91,15 85,10 Z" />
+      <path d="M87,42 C74,45 70,57 80,65 C90,62 90,52 87,42 Z" />
+      <path d="M89,72 C76,75 72,87 82,95 C92,92 92,82 89,72 Z" />
+      <path d="M91,102 C78,105 74,117 84,125 C94,122 94,112 91,102 Z" />
+    </svg>
+    
+    <svg class="bg-leaf-watermark leaf-w3" viewBox="0 0 100 200" fill="currentColor">
+      <path d="M10,190 Q30,120 15,10" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M15,10 C5,12 1,22 10,28 C19,25 21,15 15,10 Z" />
+      <path d="M13,35 C0,38 -4,50 6,58 C16,55 17,45 13,35 Z" />
+      <path d="M11,65 C-2,68 -5,80 4,88 C13,85 14,75 11,65 Z" />
+      <path d="M9,95 C-4,98 -7,110 2,118 C11,115 12,105 9,95 Z" />
+      <path d="M15,10 C25,12 30,22 20,28 C10,25 9,15 15,10 Z" />
+      <path d="M13,42 C26,45 30,57 20,65 C10,62 10,52 13,42 Z" />
+      <path d="M11,72 C24,75 28,87 18,95 C8,92 8,82 11,72 Z" />
+      <path d="M9,102 C22,105 26,117 16,125 C6,122 6,112 9,102 Z" />
+    </svg>
+
+    <svg class="bg-leaf-watermark leaf-w4" viewBox="0 0 100 200" fill="currentColor">
+      <path d="M90,190 Q70,120 85,10" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M85,10 C95,12 99,22 90,28 C81,25 79,15 85,10 Z" />
+      <path d="M87,35 C100,38 104,50 94,58 C84,55 83,45 87,35 Z" />
+      <path d="M89,65 C102,68 105,80 96,88 C87,85 86,75 89,65 Z" />
+      <path d="M91,95 C104,98 107,110 98,118 C89,115 88,105 91,95 Z" />
+      <path d="M85,10 C75,12 70,22 80,28 C90,25 91,15 85,10 Z" />
+      <path d="M87,42 C74,45 70,57 80,65 C90,62 90,52 87,42 Z" />
+      <path d="M89,72 C76,75 72,87 82,95 C92,92 92,82 89,72 Z" />
+      <path d="M91,102 C78,105 74,117 84,125 C94,122 94,112 91,102 Z" />
+    </svg>
+
+    <!-- Decorative Border Lines -->
+    <div class="page-border-line p-line-left"></div>
+    <div class="page-border-line p-line-right"></div>
     <!-- SHARED BACKGROUND ELEMENTS -->
     <div class="bg-leaves">
       <div class="bg-leaf l1"><svg viewBox="0 0 100 100">
@@ -3418,18 +3534,18 @@
 
         // ── COUNTDOWN ──
 
-        // ── GOLDEN STAR SPARKS ──
-        const goldStars = ['✦', '★', '✶', '✵', '✸', '✷', '✨'];
+        // ── FLOWER SPARKS ──
+        const flowerEmojis = ['🌸', '🌺', '🌼', '🌹', '🌷', '🍃', '🌻', '✨', '🍂', '🍁'];
         function spawnSparks(x, y) {
           const count = 15; // More sparks for a better effect
           for (let i = 0; i < count; i++) {
             const s = document.createElement('div');
             s.className = 'spark-particle';
-            s.innerHTML = goldStars[Math.floor(Math.random() * goldStars.length)];
+            s.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
 
             const angle = (Math.PI * 2 / count) * i + (Math.random() - .5);
             const dist = 60 + Math.random() * 100; // Slightly smaller radius too
-            const size = 10 + Math.random() * 32; // Highly varied sizes (10px to 42px)
+            const size = 15 + Math.random() * 15; // Smaller sparks (15-30px)
 
             // Use absolute positioning relative to the entire document
             s.style.left = x + 'px';
