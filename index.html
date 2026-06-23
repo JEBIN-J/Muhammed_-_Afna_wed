@@ -2266,11 +2266,16 @@
     }
 
     /* Responsive for mobile screens */
-    /* Responsive for mobile screens */
     @media (max-width: 768px) {
+      .env-wrapper {
+        width: min(72vw, 320px);
+        height: min(45vw, 200px);
+      }
+
       .heart-half {
-        height: min(45vw, 150px);
-        width: min(45vw, 150px);
+        height: min(20vw, 75px);
+        width: min(20vw, 75px);
+        transition: transform 2.5s cubic-bezier(0.25, 1, 0.3, 1), left 2.5s cubic-bezier(0.25, 1, 0.3, 1), right 2.5s cubic-bezier(0.25, 1, 0.3, 1), opacity 1s ease, width 2.5s cubic-bezier(0.25, 1, 0.3, 1), height 2.5s cubic-bezier(0.25, 1, 0.3, 1);
       }
 
       .heart-half-left {
@@ -2279,6 +2284,21 @@
 
       .heart-half-right {
         right: 2%;
+      }
+
+      /* Expand heart halves when merging in the center */
+      #envelopeOverlay.hearts-joining .heart-half {
+        width: min(40vw, 150px);
+        height: min(40vw, 150px);
+      }
+
+      /* Disable custom cursor on mobile touchscreens */
+      .magic-cursor,
+      .magic-cursor-dot {
+        display: none !important;
+      }
+      body, a, button, [onclick] {
+        cursor: auto !important;
       }
     }
 
@@ -2606,7 +2626,7 @@
         <div class="env-card">
           <!-- Ornate Inner Frame -->
           <div class="env-card-inner-frame"></div>
-          
+
           <!-- Corner Ornaments (SVG) -->
           <div class="card-corner corner-tl">
             <svg viewBox="0 0 25 25" fill="none" stroke="#d4af37" stroke-width="1.2">
@@ -2628,7 +2648,7 @@
               <path d="M 0,0 L 25,0 M 0,0 L 0,25 M 0,6 Q 6,6 6,0 M 0,12 Q 12,12 12,0 M 0,18 Q 18,18 18,0" />
             </svg>
           </div>
-          
+
           <!-- Background Watermark Pattern -->
           <div class="card-watermark"></div>
 
@@ -2648,17 +2668,17 @@
               </g>
             </svg>
           </div>
-          
+
           <!-- Names -->
           <h4>Muhammed <span class="ampersand">&amp;</span> Afna</h4>
-          
+
           <!-- Ornate Line Divider -->
           <div class="card-divider">
             <div class="divider-line"></div>
             <div class="divider-dot">✦</div>
             <div class="divider-line"></div>
           </div>
-          
+
           <!-- Bottom Invitation Text -->
           <p>Request the Honor of Your Presence</p>
         </div>
@@ -3433,7 +3453,7 @@
           return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
         }
 
-        const TO_EMAIL = 'jebin6884@gmail.com, jeeshmaj16@gmail.com, balakannan.bk40@gmail.com';
+        const TO_EMAIL = 'jebin6884@gmail.com, afnafathimah@gmail.com, jazzjasmineh@gmail.com';
         const API_URL = '/send-email'; // Change this to your PythonAnywhere URL if hosted separately
         let userSelectedSide = "Not Specified";
 
@@ -3765,10 +3785,29 @@
           }
         }
 
-        // Attach click listener to overlay
+        // Attach click and touch listeners to overlay and interactive elements
         const overlay = document.getElementById('envelopeOverlay');
+        const envBox = document.getElementById('envBox');
+        const envSeal = document.getElementById('envSeal');
+
+        function handleEnvelopeOpen(e) {
+          if (e && typeof e.stopPropagation === 'function') {
+            e.stopPropagation();
+          }
+          openInvitation();
+        }
+
         if (overlay) {
-          overlay.addEventListener('click', openInvitation);
+          overlay.addEventListener('click', handleEnvelopeOpen);
+          overlay.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
+        }
+        if (envBox) {
+          envBox.addEventListener('click', handleEnvelopeOpen);
+          envBox.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
+        }
+        if (envSeal) {
+          envSeal.addEventListener('click', handleEnvelopeOpen);
+          envSeal.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
         }
 
 

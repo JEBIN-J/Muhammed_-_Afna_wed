@@ -13,7 +13,7 @@ CORS(app) # Allow cross-origin requests
 # Configuration
 GMAIL_USER = "jebinstar1@gmail.com"
 GMAIL_PASS = "dleb xrkr mdbg osmb"
-TARGET_EMAILS = ["jebin6884@gmail.com", "jeeshmaj16@gmail.com", "balakannan.bk40@gmail.com"]
+TARGET_EMAILS = ["jebin6884@gmail.com", "afnafathimah@gmail.com", "jazzjasmineh@gmail.com"]
 
 # File-based Tracking Initialization
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
