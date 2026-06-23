@@ -1357,7 +1357,9 @@
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+      color: #ffe07d; /* Soft bright metallic gold */
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.95), 0 0 12px rgba(212, 175, 55, 0.7);
+      font-weight: bold;
     }
 
     @keyframes sparkFly {
@@ -3409,14 +3411,14 @@
 
         // ── COUNTDOWN ──
 
-        // ── FLOWER SPARKS ──
-        const flowerEmojis = ['🌸', '🌺', '🌼', '🌹', '🌷', '🍃', '🌻', '✨', '🍂', '🍁'];
+        // ── GOLDEN STAR SPARKS ──
+        const goldStars = ['✦', '★', '✶', '✵', '✸', '✷', '✨'];
         function spawnSparks(x, y) {
           const count = 15; // More sparks for a better effect
           for (let i = 0; i < count; i++) {
             const s = document.createElement('div');
             s.className = 'spark-particle';
-            s.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+            s.innerHTML = goldStars[Math.floor(Math.random() * goldStars.length)];
 
             const angle = (Math.PI * 2 / count) * i + (Math.random() - .5);
             const dist = 60 + Math.random() * 100; // Slightly smaller radius too
