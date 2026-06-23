@@ -2052,7 +2052,7 @@
       pointer-events: none;
       transition: transform 2.5s cubic-bezier(0.25, 1, 0.3, 1), left 2.5s cubic-bezier(0.25, 1, 0.3, 1), right 2.5s cubic-bezier(0.25, 1, 0.3, 1), opacity 1s ease;
       filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
-      opacity: 0.95;
+      opacity: 0;
     }
 
     .heart-half-left {
@@ -2091,6 +2091,7 @@
 
     /* Hearts Joining Stage */
     #envelopeOverlay.hearts-joining .heart-half {
+      opacity: 0.95;
       animation: none;
       /* Stop floating when joining */
     }
@@ -2107,6 +2108,7 @@
 
     /* Hearts Merged/Healed Stage (Pulse and Glow) */
     #envelopeOverlay.hearts-merged .heart-half {
+      opacity: 0.95;
       animation: heartHealedPulse 1s infinite alternate;
     }
 
