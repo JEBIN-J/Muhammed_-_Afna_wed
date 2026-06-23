@@ -629,182 +629,6 @@
       z-index: 5;
     }
 
-    /* ── LIGHT THEME HERO (Screenshot Style) ── */
-    .hero.light-theme {
-      background: radial-gradient(circle at 50% 80%, #fffbf2 0%, #ffedf0 40%, #f7f1e5 100%);
-      min-height: 85svh;
-      padding: 40px 24px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero.light-theme::before {
-      /* Remove the dark gradient fade */
-      display: none;
-    }
-
-    /* Sunbeams */
-    .theme-sunbeams {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .theme-sunbeams::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-conic-gradient(from 0deg at 50% 80%, rgba(255, 255, 255, 0.25) 0deg 8deg, transparent 8deg 16deg);
-      mask-image: radial-gradient(circle at 50% 80%, black 15%, transparent 75%);
-      -webkit-mask-image: radial-gradient(circle at 50% 80%, black 15%, transparent 75%);
-      opacity: 0.55;
-    }
-
-    /* Cathedral Arch Frame */
-    .theme-arch-frame {
-      position: absolute;
-      inset: clamp(12px, 3.5vw, 30px);
-      border: 1.5px solid rgba(212, 175, 55, 0.5);
-      border-radius: 200px 200px 0 0;
-      pointer-events: none;
-      z-index: 2;
-      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.8);
-    }
-    .theme-arch-frame::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border: 0.8px solid rgba(212, 175, 55, 0.3);
-      border-radius: 206px 206px 0 0;
-    }
-
-    /* Curtains / Drapes */
-    .theme-curtain {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: clamp(50px, 12vw, 130px);
-      z-index: 4;
-      pointer-events: none;
-    }
-    .curtain-left {
-      left: 0;
-      background: linear-gradient(90deg, #fdfaf5 0%, #eddcb9 60%, #e0ce9f 100%);
-      border-right: 1px solid rgba(212, 175, 55, 0.35);
-      border-bottom-right-radius: 60px 450px;
-      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.03);
-    }
-    .curtain-right {
-      right: 0;
-      background: linear-gradient(90deg, #e0ce9f 0%, #eddcb9 40%, #fdfaf5 100%);
-      border-left: 1px solid rgba(212, 175, 55, 0.35);
-      border-bottom-left-radius: 60px 450px;
-      box-shadow: -4px 0 10px rgba(0, 0, 0, 0.03);
-    }
-    .curtain-valance {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: clamp(35px, 6vh, 55px);
-      background: linear-gradient(180deg, #fefbf6 0%, #eddcb9 70%, #dcd1af 100%);
-      border-bottom: 1.5px solid rgba(212, 175, 55, 0.4);
-      border-bottom-left-radius: 50% 15px;
-      border-bottom-right-radius: 50% 15px;
-      z-index: 5;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    }
-
-    /* Chandeliers */
-    .theme-chandelier {
-      position: absolute;
-      top: 0;
-      z-index: 5;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-    .chandelier-left {
-      left: clamp(40px, 10vw, 110px);
-    }
-    .chandelier-right {
-      right: clamp(40px, 10vw, 110px);
-    }
-
-    /* Flowers */
-    .theme-flowers {
-      position: absolute;
-      pointer-events: none;
-      z-index: 6;
-    }
-    .top-flowers-left {
-      top: -10px;
-      left: -10px;
-      width: clamp(80px, 20vw, 130px);
-      height: clamp(80px, 20vw, 130px);
-    }
-    .top-flowers-right {
-      top: -10px;
-      right: -10px;
-      width: clamp(80px, 20vw, 130px);
-      height: clamp(80px, 20vw, 130px);
-      transform: scaleX(-1);
-    }
-    .bottom-flowers-left {
-      bottom: -15px;
-      left: -15px;
-      width: clamp(70px, 16vw, 100px);
-      height: clamp(70px, 16vw, 100px);
-    }
-    .bottom-flowers-right {
-      bottom: -15px;
-      right: -15px;
-      width: clamp(70px, 16vw, 100px);
-      height: clamp(70px, 16vw, 100px);
-      transform: scaleY(-1);
-    }
-
-    /* Text Colors for Light Theme */
-    .hero.light-theme .hero-top-label {
-      color: #7d6537; /* Darker warm gold */
-      opacity: 0.85;
-    }
-    .hero.light-theme .hero-names h1 {
-      color: #825f18; /* Rich golden bronze text */
-      text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-      font-weight: 500;
-    }
-    .hero.light-theme .hero-names .amp {
-      color: #b58d3c;
-    }
-    .hero.light-theme .hero-line {
-      background: linear-gradient(90deg, transparent, #b58d3c, transparent);
-    }
-    .hero.light-theme .hero-line::after {
-      color: #b58d3c;
-      background: #f7f1e5; /* Match local background color */
-    }
-    .hero.light-theme .hero-date {
-      color: #5c4b2a;
-      opacity: 0.9;
-    }
-    .hero.light-theme .hero-venue {
-      color: #7d6537;
-      opacity: 0.85;
-    }
-    .hero.light-theme .scroll-hint {
-      color: #7d6537;
-      opacity: 0.8;
-    }
-    .hero.light-theme .scroll-hint .arrow {
-      color: #7d6537;
-    }
-
 
 
     .hero-top-label {
@@ -1847,17 +1671,15 @@
       left: 7%;
       right: 7%;
       height: 90%;
-      background: #fffef9;
-      /* Silk/Glossy paper texture */
-      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fffef4 100%);
+      background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fffef4 100%);
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 16px;
-      border: 3px double #C8A96E;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       transform: translateY(0) rotateX(10deg);
       /* Initial tilt */
       opacity: 0;
@@ -1866,35 +1688,120 @@
         opacity 0.5s 0.6s,
         box-shadow 1.4s 0.6s;
       transform-style: preserve-3d;
+      border-radius: 4px;
     }
 
     .env-box.env-revealing .env-card {
       opacity: 1;
       transform: translateY(-115%) rotateX(0deg);
       /* Slides up and levels out */
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.22);
       /* Shadow grows as it exits */
+    }
+
+    .env-card-inner-frame {
+      position: absolute;
+      inset: 8px;
+      border: 1px double rgba(212, 175, 55, 0.4);
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Card Corner Ornaments */
+    .card-corner {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 2;
+    }
+    .corner-tl { top: 12px; left: 12px; }
+    .corner-tr { top: 12px; right: 12px; transform: scaleX(-1); }
+    .corner-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+    .corner-br { bottom: 12px; right: 12px; transform: scale(-1); }
+
+    /* Watermark Background Mandala */
+    .card-watermark {
+      position: absolute;
+      inset: 15%;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50,10 C 27.9,10 10,27.9 10,50 C 10,72.1 27.9,90 50,90 C 72.1,90 90,72.1 90,50 C 90,27.9 72.1,10 50,10 Z M 50,15 C 69.3,15 85,30.7 85,50 C 85,69.3 69.3,85 50,85 C 30.7,85 15,69.3 15,50 C 15,30.7 30.7,15 50,15 Z M 50,25 A 25,25 0 1 0 50,75 A 25,25 0 1 0 50,25 Z' fill='%23d4af37' fill-opacity='0.04'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .card-top-ornament {
+      margin-bottom: 12px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-top-ornament-svg {
+      width: 42px;
+      height: 42px;
     }
 
     .env-card h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 5vw, 28px);
-      font-weight: 600;
+      font-size: clamp(22px, 5.5vw, 32px);
+      font-weight: 500;
       letter-spacing: 1px;
-      color: #247048;
+      color: #0c3c24; /* Rich emerald dark green */
       margin: 0;
       text-align: center;
+      line-height: 1.2;
+      text-shadow: 0.5px 0.5px 0px rgba(212, 175, 55, 0.2);
+      z-index: 3;
+    }
+
+    .env-card h4 .ampersand {
+      display: block;
+      font-size: 0.85em;
+      color: #b5945b;
+      margin: 4px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    /* Ornate Divider */
+    .card-divider {
+      display: flex;
+      align-items: center;
+      width: 55%;
+      margin: 14px 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .card-divider .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+    }
+
+    .card-divider .divider-dot {
+      color: #b5945b;
+      margin: 0 8px;
+      font-size: 8px;
     }
 
     .env-card p {
       font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      letter-spacing: 4px;
+      font-size: clamp(8px, 1.8vw, 10px);
+      letter-spacing: 3.5px;
       text-transform: uppercase;
-      margin-top: 12px;
-      color: #C8A96E;
-      font-weight: 600;
+      margin-top: 0;
+      color: #826a3c;
+      font-weight: 500;
       text-align: center;
+      line-height: 1.4;
+      z-index: 3;
     }
 
     /* OPEN STATE */
@@ -2702,8 +2609,62 @@
 
         <!-- Invitation card (hidden initially) -->
         <div class="env-card">
-          <div style="font-size: 20px; color: var(--gold); margin-bottom: 6px;">۞</div>
-          <h4>Afna &amp; Muhammed</h4>
+          <!-- Ornate Inner Frame -->
+          <div class="env-card-inner-frame"></div>
+          
+          <!-- Corner Ornaments (SVG) -->
+          <div class="card-corner corner-tl">
+            <svg viewBox="0 0 25 25" fill="none" stroke="#d4af37" stroke-width="1.2">
+              <path d="M 0,0 L 25,0 M 0,0 L 0,25 M 0,6 Q 6,6 6,0 M 0,12 Q 12,12 12,0 M 0,18 Q 18,18 18,0" />
+            </svg>
+          </div>
+          <div class="card-corner corner-tr">
+            <svg viewBox="0 0 25 25" fill="none" stroke="#d4af37" stroke-width="1.2">
+              <path d="M 0,0 L 25,0 M 0,0 L 0,25 M 0,6 Q 6,6 6,0 M 0,12 Q 12,12 12,0 M 0,18 Q 18,18 18,0" />
+            </svg>
+          </div>
+          <div class="card-corner corner-bl">
+            <svg viewBox="0 0 25 25" fill="none" stroke="#d4af37" stroke-width="1.2">
+              <path d="M 0,0 L 25,0 M 0,0 L 0,25 M 0,6 Q 6,6 6,0 M 0,12 Q 12,12 12,0 M 0,18 Q 18,18 18,0" />
+            </svg>
+          </div>
+          <div class="card-corner corner-br">
+            <svg viewBox="0 0 25 25" fill="none" stroke="#d4af37" stroke-width="1.2">
+              <path d="M 0,0 L 25,0 M 0,0 L 0,25 M 0,6 Q 6,6 6,0 M 0,12 Q 12,12 12,0 M 0,18 Q 18,18 18,0" />
+            </svg>
+          </div>
+          
+          <!-- Background Watermark Pattern -->
+          <div class="card-watermark"></div>
+
+          <!-- Top Ornament (Golden Mandala SVG) -->
+          <div class="card-top-ornament">
+            <svg viewBox="0 0 100 100" class="card-top-ornament-svg">
+              <g fill="none" stroke="#d4af37" stroke-width="1.2">
+                <circle cx="50" cy="50" r="28" stroke-dasharray="2,3" />
+                <circle cx="50" cy="50" r="22" />
+                <path d="M 50,22 C 46,28 42,28 38,32 C 32,38 32,42 22,50 C 32,58 32,62 38,68 C 42,72 46,72 50,78 C 54,72 58,72 62,68 C 68,62 68,58 78,50 C 68,42 68,38 62,32 C 58,28 54,28 50,22 Z" />
+                <path d="M 30,30 Q 50,40 50,50 Q 40,50 30,30" />
+                <path d="M 70,30 Q 50,40 50,50 Q 60,50 70,30" />
+                <path d="M 30,70 Q 50,60 50,50 Q 40,50 30,70" />
+                <path d="M 70,70 Q 50,60 50,50 Q 60,50 70,70" />
+                <circle cx="50" cy="50" r="6" fill="#d4af37" />
+                <circle cx="50" cy="50" r="12" />
+              </g>
+            </svg>
+          </div>
+          
+          <!-- Names -->
+          <h4>Afna <span class="ampersand">&amp;</span> Muhammed</h4>
+          
+          <!-- Ornate Line Divider -->
+          <div class="card-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot">✦</div>
+            <div class="divider-line"></div>
+          </div>
+          
+          <!-- Bottom Invitation Text -->
           <p>Request the Honor of Your Presence</p>
         </div>
 
@@ -2914,183 +2875,36 @@
 
     <!-- FLOWS -->
     <div id="groomFlow" class="flow-container">
-      <div class="hero light-theme">
-        <!-- 3D Sunbeams and Light rays -->
-        <div class="theme-sunbeams"></div>
-        <!-- Cathedral double arch lines -->
-        <div class="theme-arch-frame"></div>
-        <!-- Side Curtains / Drapes -->
-        <div class="theme-curtain curtain-left"></div>
-        <div class="theme-curtain curtain-right"></div>
-        <!-- Top Valance drape -->
-        <div class="curtain-valance"></div>
-
-        <!-- Hanging Chandeliers (SVG) -->
-        <div class="theme-chandelier chandelier-left">
-          <svg viewBox="0 0 100 120" width="80" height="96">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
-            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
-            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
-            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
-            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="50" cy="95" r="2" fill="#ffe699" />
+      <div class="hero">
+        <!-- Hanging Lanterns -->
+        <div class="hanging-lantern lantern-left">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)"
+              stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
           </svg>
         </div>
-        <div class="theme-chandelier chandelier-right">
-          <svg viewBox="0 0 100 120" width="80" height="96">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
-            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
-            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
-            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
-            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="50" cy="95" r="2" fill="#ffe699" />
+        <div class="hanging-lantern lantern-right">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)"
+              stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
           </svg>
         </div>
-
-        <!-- Corner Flower Clusters (SVG) -->
-        <div class="theme-flowers top-flowers-left">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradG" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradG" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradG" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradG)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradG)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradG)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers top-flowers-right">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradG_TR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradG_TR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradG_TR" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_TR)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_TR)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_TR)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_TR)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_TR)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_TR)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers bottom-flowers-left">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradG_BL" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradG_BL" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradG_BL" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_BL)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_BL)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_BL)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_BL)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_BL)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_BL)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers bottom-flowers-right">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradG_BR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradG_BR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradG_BR" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_BR)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_BR)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_BR)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_BR)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_BR)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_BR)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Muhammed</h1>
@@ -3189,183 +3003,36 @@
     </div>
 
     <div id="brideFlow" class="flow-container hidden">
-      <div class="hero light-theme">
-        <!-- 3D Sunbeams and Light rays -->
-        <div class="theme-sunbeams"></div>
-        <!-- Cathedral double arch lines -->
-        <div class="theme-arch-frame"></div>
-        <!-- Side Curtains / Drapes -->
-        <div class="theme-curtain curtain-left"></div>
-        <div class="theme-curtain curtain-right"></div>
-        <!-- Top Valance drape -->
-        <div class="curtain-valance"></div>
-
-        <!-- Hanging Chandeliers (SVG) -->
-        <div class="theme-chandelier chandelier-left">
-          <svg viewBox="0 0 100 120" width="80" height="96">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
-            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
-            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
-            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
-            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="50" cy="95" r="2" fill="#ffe699" />
+      <div class="hero">
+        <!-- Hanging Lanterns -->
+        <div class="hanging-lantern lantern-left">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)"
+              stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
           </svg>
         </div>
-        <div class="theme-chandelier chandelier-right">
-          <svg viewBox="0 0 100 120" width="80" height="96">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
-            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
-            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
-            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
-            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
-            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
-            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
-            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
-            <circle cx="50" cy="95" r="2" fill="#ffe699" />
+        <div class="hanging-lantern lantern-right">
+          <svg viewBox="0 0 100 150">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
+            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
+            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
+            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)"
+              stroke-width="1" />
+            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
+            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
+            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
+            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
           </svg>
         </div>
-
-        <!-- Corner Flower Clusters (SVG) -->
-        <div class="theme-flowers top-flowers-left">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradB" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradB" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradB" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradB)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradB)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradB)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers top-flowers-right">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradB_TR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradB_TR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradB_TR" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_TR)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_TR)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_TR)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_TR)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_TR)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_TR)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers bottom-flowers-left">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradB_BL" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradB_BL" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradB_BL" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_BL)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_BL)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_BL)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_BL)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_BL)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_BL)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-        <div class="theme-flowers bottom-flowers-right">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <radialGradient id="roseGradB_BR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffccd5" />
-                <stop offset="50%" style="stop-color:#ff8a9f" />
-                <stop offset="100%" style="stop-color:#d63a56" />
-              </radialGradient>
-              <radialGradient id="peachGradB_BR" cx="35%" cy="30%" r="60%">
-                <stop offset="0%" style="stop-color:#ffeed6" />
-                <stop offset="60%" style="stop-color:#ffb38a" />
-                <stop offset="100%" style="stop-color:#e0662d" />
-              </radialGradient>
-              <linearGradient id="leafGradB_BR" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#a8cca0" />
-                <stop offset="100%" style="stop-color:#4d7345" />
-              </linearGradient>
-            </defs>
-            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_BR)" />
-            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_BR)" />
-            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_BR)" />
-            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_BR)" />
-            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
-            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
-            <circle cx="60" cy="60" r="8" fill="#d63a56" />
-            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_BR)" />
-            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
-            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_BR)" />
-            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
-          </svg>
-        </div>
-
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Afna</h1>
@@ -3998,7 +3665,7 @@
               setTimeout(() => {
                 overlay.classList.add('hidden');
                 selection.classList.remove('hidden');
-              }, 3600);
+              }, 4800);
 
             }, 800);
 
