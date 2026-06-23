@@ -1891,59 +1891,115 @@
       overflow: visible;
     }
 
-    .env-char {
+    /* ── BROKEN HEART AND RIBBON STYLES ── */
+    .heart-half {
       position: absolute;
       top: 50%;
-      height: min(55vw, 280px); /* Matches envelope box height for balance */
-      width: auto;
-      object-fit: contain;
-      z-index: 1; /* behind the envelope box initially */
+      height: min(40vw, 200px);
+      width: min(40vw, 200px);
+      z-index: 15;
       pointer-events: none;
-      transition: transform 1.2s cubic-bezier(0.25, 1, 0.3, 1), left 1.2s cubic-bezier(0.25, 1, 0.3, 1), right 1.2s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.8s ease;
-      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
-      opacity: 0.9;
+      transition: transform 2.5s cubic-bezier(0.25, 1, 0.3, 1), left 2.5s cubic-bezier(0.25, 1, 0.3, 1), right 2.5s cubic-bezier(0.25, 1, 0.3, 1), opacity 1s ease;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+      opacity: 0.95;
     }
 
-    .env-char-left {
-      left: 4%;
+    .heart-half-left {
+      left: 10%;
       transform: translateY(-50%);
-      transform-origin: center left;
-      animation: floatLeft 6s ease-in-out infinite alternate;
+      transform-origin: center center;
+      animation: floatLeftHeart 6s ease-in-out infinite alternate;
     }
 
-    .env-char-right {
-      right: 4%;
+    .heart-half-right {
+      right: 10%;
       transform: translateY(-50%);
-      transform-origin: center right;
-      animation: floatRight 6s ease-in-out infinite alternate;
+      transform-origin: center center;
+      animation: floatRightHeart 6s ease-in-out infinite alternate;
     }
 
-    @keyframes floatLeft {
+    @keyframes floatLeftHeart {
       0% { transform: translateY(-50%) rotate(0deg); }
-      100% { transform: translateY(-53%) rotate(1deg); }
+      100% { transform: translateY(-53%) rotate(2deg); }
     }
 
-    @keyframes floatRight {
+    @keyframes floatRightHeart {
       0% { transform: translateY(-50%) rotate(0deg); }
-      100% { transform: translateY(-53%) rotate(-1deg); }
+      100% { transform: translateY(-53%) rotate(-2deg); }
     }
 
-    /* Meeting at Center Animation */
-    #envelopeOverlay.interaction-started .env-char {
-      z-index: 15; /* Slides over (in front of) the envelope */
-      opacity: 1;
+    /* Hearts Joining Stage */
+    #envelopeOverlay.hearts-joining .heart-half {
+      animation: none; /* Stop floating when joining */
     }
 
-    #envelopeOverlay.interaction-started .env-char-left {
-      animation: none;
+    #envelopeOverlay.hearts-joining .heart-half-left {
       left: 50%;
-      transform: translate(-85%, -50%) scale(1.05); /* meet with a small distance between center-left */
+      transform: translate(-50%, -50%);
     }
 
-    #envelopeOverlay.interaction-started .env-char-right {
-      animation: none;
+    #envelopeOverlay.hearts-joining .heart-half-right {
       right: 50%;
-      transform: translate(85%, -50%) scale(1.05); /* meet with a small distance between center-right */
+      transform: translate(50%, -50%);
+    }
+
+    /* Hearts Merged/Healed Stage (Pulse and Glow) */
+    #envelopeOverlay.hearts-merged .heart-half {
+      animation: heartHealedPulse 1s infinite alternate;
+    }
+
+    @keyframes heartHealedPulse {
+      0% {
+        transform: translate(var(--x-offset, -50%), -50%) scale(1);
+        filter: drop-shadow(0 0 15px rgba(255, 42, 95, 0.7));
+      }
+      100% {
+        transform: translate(var(--x-offset, -50%), -50%) scale(1.1);
+        filter: drop-shadow(0 0 35px rgba(255, 42, 95, 1)) drop-shadow(0 0 18px #d4af37);
+      }
+    }
+    
+    #envelopeOverlay.hearts-merged .heart-half-left {
+      --x-offset: -50%;
+    }
+    
+    #envelopeOverlay.hearts-merged .heart-half-right {
+      --x-offset: 50%;
+    }
+
+    /* Envelope Opened Stage (Hearts fly up and fade out) */
+    #envelopeOverlay.interaction-started .heart-half {
+      transform: translate(var(--x-offset, -50%), -180%) scale(0.4);
+      opacity: 0;
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease;
+    }
+
+    #envelopeOverlay.interaction-started .heart-half-left {
+      --x-offset: -50%;
+    }
+    
+    #envelopeOverlay.interaction-started .heart-half-right {
+      --x-offset: 50%;
+    }
+
+    /* Hide Guide Hand and Hint during joining */
+    #envelopeOverlay.hearts-joining .env-guide-hand,
+    #envelopeOverlay.hearts-joining .env-hint {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Styling for the letters inside the heart halves */
+    .heart-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; /* Ideal scale in SVG user space coordinates */
+      font-weight: 700;
+      fill: #fefaf0; /* Warm white */
+      text-anchor: middle;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+      text-shadow: 0 0 5px rgba(212, 175, 55, 0.9);
+      pointer-events: none;
     }
 
     /* Ribbon styles */
@@ -2043,21 +2099,17 @@
     }
 
     /* Responsive for mobile screens */
+    /* Responsive for mobile screens */
     @media (max-width: 768px) {
-      .env-char {
-        height: min(50vw, 250px);
+      .heart-half {
+        height: min(45vw, 150px);
+        width: min(45vw, 150px);
       }
-      .env-char-left {
+      .heart-half-left {
         left: 2%;
       }
-      .env-char-right {
+      .heart-half-right {
         right: 2%;
-      }
-      #envelopeOverlay.interaction-started .env-char-left {
-        transform: translate(-80%, -50%) scale(1.05);
-      }
-      #envelopeOverlay.interaction-started .env-char-right {
-        transform: translate(80%, -50%) scale(1.05);
       }
     }
 
@@ -2320,9 +2372,46 @@
       </defs>
     </svg>
 
-    <!-- Couple Images -->
-    <img src="images/WhatsApp Image 2026-06-10 at 23.33.26-Photoroom.png" alt="Groom" class="env-char env-char-left" id="charLeft">
-    <img src="images/WhatsApp Image 2026-06-10 at 18.00.05-Photoroom.png" alt="Bride" class="env-char env-char-right" id="charRight">
+    <!-- Broken Heart Halves -->
+    <svg class="heart-half heart-half-left" id="heartLeft" viewBox="0 0 100 100">
+      <defs>
+        <!-- 3D radial gradient for a polished ruby-gem look -->
+        <radialGradient id="heartGradLeft" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" style="stop-color:#ff6b95;stop-opacity:1" />
+          <stop offset="45%" style="stop-color:#d60036;stop-opacity:1" />
+          <stop offset="85%" style="stop-color:#7a001e;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#40000a;stop-opacity:1" />
+        </radialGradient>
+        <!-- Gold linear gradient for a metallic shining outline border -->
+        <linearGradient id="goldStrokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffe8a3;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#b89547;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#91702c;stop-opacity:1" />
+        </linearGradient>
+        <!-- Gold Glow Filter -->
+        <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#d4af37" flood-opacity="0.8"/>
+        </filter>
+      </defs>
+      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z" fill="url(#heartGradLeft)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
+      <!-- Letter M for Muhammed -->
+      <text x="34" y="52" dominant-baseline="central" class="heart-letter">M</text>
+    </svg>
+
+    <svg class="heart-half heart-half-right" id="heartRight" viewBox="0 0 100 100">
+      <defs>
+        <!-- 3D radial gradient for a polished ruby-gem look -->
+        <radialGradient id="heartGradRight" cx="65%" cy="30%" r="75%">
+          <stop offset="0%" style="stop-color:#ff6b95;stop-opacity:1" />
+          <stop offset="45%" style="stop-color:#d60036;stop-opacity:1" />
+          <stop offset="85%" style="stop-color:#7a001e;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#40000a;stop-opacity:1" />
+        </radialGradient>
+      </defs>
+      <path d="M 50,20 C 65,5 85,10 85,35 C 85,55 65,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z" fill="url(#heartGradRight)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
+      <!-- Letter A for Afna -->
+      <text x="66" y="52" dominant-baseline="central" class="heart-letter">A</text>
+    </svg>
 
     <div class="env-wrapper">
       <div class="env-box" id="envBox">
@@ -3207,19 +3296,8 @@
         const music = document.getElementById('bgMusic');
         const musicCtrl = document.getElementById('musicControl');
 
-        // Update guide hand text and icon for the pull animation
-        const guideHandIcon = document.querySelector('#guideHand .hand-icon');
-        if (guideHandIcon) {
-          guideHandIcon.innerText = '✊';
-        }
-        const guideHandLabel = document.querySelector('#guideHand .hand-label');
-        if (guideHandLabel) {
-          guideHandLabel.innerText = 'Pulling...';
-        }
-
-        // 0. Hide guide hand and trigger magic
-        overlay.classList.add('interaction-started');
-        triggerMagicSparks();
+        // Prevent double trigger if already animating
+        if (overlay.classList.contains('hearts-joining')) return;
 
         // 1. Start music immediately (Interaction)
         const openSfx = document.getElementById('openSound');
@@ -3241,21 +3319,37 @@
           }
         }
 
-        // 2. Open flap (delayed until couple meets and ribbon snaps)
-        setTimeout(() => {
-          env.classList.add('env-open');
-        }, 800);
+        // Start hearts joining animation (slow motion)
+        overlay.classList.add('hearts-joining');
 
-        // 3. Allow card to slide out (make overflow visible after flap starts opening)
+        // After hearts join (2.5 seconds)
         setTimeout(() => {
-          env.classList.add('env-revealing');
-        }, 1100);
+          overlay.classList.add('hearts-merged');
+          triggerMagicSparks();
 
-        // 4. After card exits, show selection overlay
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          selection.classList.remove('hidden');
-        }, 3600);
+          // Wait 0.8 seconds for the healed pulse/glow effect, then open the envelope
+          setTimeout(() => {
+            overlay.classList.add('interaction-started');
+
+            // Open flap
+            setTimeout(() => {
+              env.classList.add('env-open');
+            }, 800);
+
+            // Allow card to slide out
+            setTimeout(() => {
+              env.classList.add('env-revealing');
+            }, 1100);
+
+            // After card exits, show selection overlay
+            setTimeout(() => {
+              overlay.classList.add('hidden');
+              selection.classList.remove('hidden');
+            }, 3600);
+
+          }, 800);
+
+        }, 2500);
       }
 
 
