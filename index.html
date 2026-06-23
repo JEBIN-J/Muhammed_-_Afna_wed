@@ -1358,7 +1358,9 @@
       justify-content: center;
       z-index: 10000;
       color: #ffd700; /* Full bright metallic gold */
-      text-shadow: 0 0 4px #ffd700, 0 0 10px #ffb800, 0 0 20px #ff8c00; /* Glowing gold/orange fire */
+      /* Crisp outline and shadow for maximum sharpness */
+      -webkit-text-stroke: 0.5px #9e7d3b;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 2px rgba(255, 215, 0, 0.5);
       font-weight: bold;
     }
 
