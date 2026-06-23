@@ -248,6 +248,7 @@
       0% {
         transform: rotate(-3deg);
       }
+
       100% {
         transform: rotate(3deg);
       }
@@ -626,6 +627,182 @@
       height: 120px;
       background: linear-gradient(180deg, transparent, var(--bg-dark));
       z-index: 5;
+    }
+
+    /* ── LIGHT THEME HERO (Screenshot Style) ── */
+    .hero.light-theme {
+      background: radial-gradient(circle at 50% 80%, #fffbf2 0%, #ffedf0 40%, #f7f1e5 100%);
+      min-height: 85svh;
+      padding: 40px 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero.light-theme::before {
+      /* Remove the dark gradient fade */
+      display: none;
+    }
+
+    /* Sunbeams */
+    .theme-sunbeams {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .theme-sunbeams::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-conic-gradient(from 0deg at 50% 80%, rgba(255, 255, 255, 0.25) 0deg 8deg, transparent 8deg 16deg);
+      mask-image: radial-gradient(circle at 50% 80%, black 15%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 50% 80%, black 15%, transparent 75%);
+      opacity: 0.55;
+    }
+
+    /* Cathedral Arch Frame */
+    .theme-arch-frame {
+      position: absolute;
+      inset: clamp(12px, 3.5vw, 30px);
+      border: 1.5px solid rgba(212, 175, 55, 0.5);
+      border-radius: 200px 200px 0 0;
+      pointer-events: none;
+      z-index: 2;
+      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    .theme-arch-frame::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 0.8px solid rgba(212, 175, 55, 0.3);
+      border-radius: 206px 206px 0 0;
+    }
+
+    /* Curtains / Drapes */
+    .theme-curtain {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: clamp(50px, 12vw, 130px);
+      z-index: 4;
+      pointer-events: none;
+    }
+    .curtain-left {
+      left: 0;
+      background: linear-gradient(90deg, #fdfaf5 0%, #eddcb9 60%, #e0ce9f 100%);
+      border-right: 1px solid rgba(212, 175, 55, 0.35);
+      border-bottom-right-radius: 60px 450px;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.03);
+    }
+    .curtain-right {
+      right: 0;
+      background: linear-gradient(90deg, #e0ce9f 0%, #eddcb9 40%, #fdfaf5 100%);
+      border-left: 1px solid rgba(212, 175, 55, 0.35);
+      border-bottom-left-radius: 60px 450px;
+      box-shadow: -4px 0 10px rgba(0, 0, 0, 0.03);
+    }
+    .curtain-valance {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: clamp(35px, 6vh, 55px);
+      background: linear-gradient(180deg, #fefbf6 0%, #eddcb9 70%, #dcd1af 100%);
+      border-bottom: 1.5px solid rgba(212, 175, 55, 0.4);
+      border-bottom-left-radius: 50% 15px;
+      border-bottom-right-radius: 50% 15px;
+      z-index: 5;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    /* Chandeliers */
+    .theme-chandelier {
+      position: absolute;
+      top: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    .chandelier-left {
+      left: clamp(40px, 10vw, 110px);
+    }
+    .chandelier-right {
+      right: clamp(40px, 10vw, 110px);
+    }
+
+    /* Flowers */
+    .theme-flowers {
+      position: absolute;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .top-flowers-left {
+      top: -10px;
+      left: -10px;
+      width: clamp(80px, 20vw, 130px);
+      height: clamp(80px, 20vw, 130px);
+    }
+    .top-flowers-right {
+      top: -10px;
+      right: -10px;
+      width: clamp(80px, 20vw, 130px);
+      height: clamp(80px, 20vw, 130px);
+      transform: scaleX(-1);
+    }
+    .bottom-flowers-left {
+      bottom: -15px;
+      left: -15px;
+      width: clamp(70px, 16vw, 100px);
+      height: clamp(70px, 16vw, 100px);
+    }
+    .bottom-flowers-right {
+      bottom: -15px;
+      right: -15px;
+      width: clamp(70px, 16vw, 100px);
+      height: clamp(70px, 16vw, 100px);
+      transform: scaleY(-1);
+    }
+
+    /* Text Colors for Light Theme */
+    .hero.light-theme .hero-top-label {
+      color: #7d6537; /* Darker warm gold */
+      opacity: 0.85;
+    }
+    .hero.light-theme .hero-names h1 {
+      color: #825f18; /* Rich golden bronze text */
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .hero.light-theme .hero-names .amp {
+      color: #b58d3c;
+    }
+    .hero.light-theme .hero-line {
+      background: linear-gradient(90deg, transparent, #b58d3c, transparent);
+    }
+    .hero.light-theme .hero-line::after {
+      color: #b58d3c;
+      background: #f7f1e5; /* Match local background color */
+    }
+    .hero.light-theme .hero-date {
+      color: #5c4b2a;
+      opacity: 0.9;
+    }
+    .hero.light-theme .hero-venue {
+      color: #7d6537;
+      opacity: 0.85;
+    }
+    .hero.light-theme .scroll-hint {
+      color: #7d6537;
+      opacity: 0.8;
+    }
+    .hero.light-theme .scroll-hint .arrow {
+      color: #7d6537;
     }
 
 
@@ -1442,7 +1619,8 @@
       position: relative;
       width: min(90vw, 480px);
       height: min(60vw, 300px);
-      perspective: 3000px; /* Enhanced 3D depth */
+      perspective: 3000px;
+      /* Enhanced 3D depth */
       overflow: visible;
     }
 
@@ -1457,8 +1635,8 @@
       border: 3px solid #d4af37;
       /* Deeper ground shadow for 3D floating effect */
       box-shadow:
-        0 50px 120px rgba(0,0,0,0.2),
-        0 15px 40px rgba(0,0,0,0.1),
+        0 50px 120px rgba(0, 0, 0, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.1),
         inset 0 0 40px rgba(212, 175, 55, 0.1);
       transform-style: preserve-3d;
       /* Permanent 3D Tilt */
@@ -1480,8 +1658,8 @@
     .env-box:hover {
       transform: translateY(-4px) scale(1.015);
       box-shadow:
-        0 32px 80px rgba(0,0,0,0.32),
-        0 8px 20px rgba(0,0,0,0.18);
+        0 32px 80px rgba(0, 0, 0, 0.32),
+        0 8px 20px rgba(0, 0, 0, 0.18);
     }
 
     /* ── SHARED FLAP BASE ── */
@@ -1504,25 +1682,35 @@
       top: 0;
       left: 0;
       pointer-events: none;
-      z-index: 2; /* All flaps start above card */
+      z-index: 2;
+      /* All flaps start above card */
     }
 
     .env-flap-svg path {
       fill: #ffffff;
-      stroke: #d4af37; /* EXACT Gold Border */
+      stroke: #d4af37;
+      /* EXACT Gold Border */
       stroke-width: 2px;
       vector-effect: non-scaling-stroke;
     }
 
-    .env-flap-left path { fill: url(#gradLeft); }
-    .env-flap-right path { fill: url(#gradRight); }
-    .env-flap-bottom path { fill: url(#gradBottom); }
+    .env-flap-left path {
+      fill: url(#gradLeft);
+    }
+
+    .env-flap-right path {
+      fill: url(#gradRight);
+    }
+
+    .env-flap-bottom path {
+      fill: url(#gradBottom);
+    }
 
     .env-flap-top-svg {
       z-index: 6;
       transform-origin: top center;
       transition: transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
-      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
     }
 
     .env-flap-top-svg path {
@@ -1550,8 +1738,10 @@
     /* Crease / diagonal fold lines — like in reference image */
     .env-crease {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 4;
     }
@@ -1570,7 +1760,7 @@
       height: 52px;
       background: linear-gradient(135deg, #C8A96E 0%, #e4d5aa 50%, #C8A96E 100%);
       z-index: 8;
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid rgba(255, 255, 255, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1591,7 +1781,7 @@
         radial-gradient(circle at 0% 50%, transparent 4px, white 4px) left/100% 8px,
         radial-gradient(circle at 100% 50%, transparent 4px, white 4px) right/100% 8px;
       mask-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
       text-align: center;
       line-height: 1;
     }
@@ -1628,10 +1818,10 @@
       background: radial-gradient(circle at 35% 30%, #1b4d3e 0%, #0d2920 100%);
       border-radius: 50%;
       z-index: 7;
-      box-shadow: 
-        0 8px 20px rgba(0,0,0,0.3), 
-        inset 0 0 12px rgba(0,0,0,0.5),
-        2px 2px 2px rgba(255,255,255,0.1);
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 12px rgba(0, 0, 0, 0.5),
+        2px 2px 2px rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1646,7 +1836,7 @@
     }
 
     .env-seal:hover {
-      box-shadow: 0 10px 28px rgba(27, 77, 62, 0.4), inset 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 28px rgba(27, 77, 62, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.4);
       transform: translate(-50%, -20%) scale(1.1);
     }
 
@@ -1667,11 +1857,12 @@
       justify-content: center;
       padding: 16px;
       border: 3px double #C8A96E;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transform: translateY(0) rotateX(10deg); /* Initial tilt */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(0) rotateX(10deg);
+      /* Initial tilt */
       opacity: 0;
-      transition: 
-        transform 1.4s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+      transition:
+        transform 1.4s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
         opacity 0.5s 0.6s,
         box-shadow 1.4s 0.6s;
       transform-style: preserve-3d;
@@ -1679,8 +1870,10 @@
 
     .env-box.env-revealing .env-card {
       opacity: 1;
-      transform: translateY(-115%) rotateX(0deg); /* Slides up and levels out */
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25); /* Shadow grows as it exits */
+      transform: translateY(-115%) rotateX(0deg);
+      /* Slides up and levels out */
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      /* Shadow grows as it exits */
     }
 
     .env-card h4 {
@@ -1706,17 +1899,19 @@
 
     /* OPEN STATE */
     .env-box.env-open {
-      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); /* Level out when opening */
-      box-shadow: 
-        0 60px 140px rgba(0,0,0,0.35),
-        inset 0 -20px 60px rgba(0,0,0,0.3),
-        inset 0 0 0 4px #d4af37; 
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      /* Level out when opening */
+      box-shadow:
+        0 60px 140px rgba(0, 0, 0, 0.35),
+        inset 0 -20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 4px #d4af37;
     }
 
     .env-box.env-open .env-flap-top-svg {
       transform: rotateX(-170deg);
       z-index: 1;
-      filter: drop-shadow(0 -6px 10px rgba(0,0,0,0.3)); /* Shadow flips when open */
+      filter: drop-shadow(0 -6px 10px rgba(0, 0, 0, 0.3));
+      /* Shadow flips when open */
     }
 
     .env-box.env-open .env-seal {
@@ -1735,14 +1930,14 @@
       font-size: 15px;
       font-style: italic;
       letter-spacing: 2px;
-      color: #b8860b; 
+      color: #b8860b;
       animation: pulseText 2.5s infinite;
     }
 
     /* ── GUIDING HAND (Top Center Default) ── */
     .env-guide-hand {
       position: absolute;
-      top: 15%; 
+      top: 15%;
       left: 50%;
       transform: translateX(-50%);
       z-index: 30000;
@@ -1776,14 +1971,31 @@
     }
 
     @keyframes sparkBurst {
-      0% { transform: translate(0, 0) scale(1); opacity: 1; }
-      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+      }
     }
 
     @keyframes starBurst {
-      0% { transform: translate(0, 0) rotate(0deg) scale(0); opacity: 1; }
-      20% { transform: translate(var(--tx), var(--ty)) rotate(180deg) scale(1.5); }
-      100% { transform: translate(var(--tx2), var(--ty2)) rotate(360deg) scale(0); opacity: 0; }
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(0);
+        opacity: 1;
+      }
+
+      20% {
+        transform: translate(var(--tx), var(--ty)) rotate(180deg) scale(1.5);
+      }
+
+      100% {
+        transform: translate(var(--tx2), var(--ty2)) rotate(360deg) scale(0);
+        opacity: 0;
+      }
     }
 
     /* Bright central flash on open */
@@ -1806,9 +2018,20 @@
     }
 
     @keyframes flashEffect {
-      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-      30% { transform: translate(-50%, -50%) scale(10); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(20); opacity: 0; }
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+
+      30% {
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(20);
+        opacity: 0;
+      }
     }
 
     .hand-label {
@@ -1818,30 +2041,46 @@
       font-size: clamp(20px, 4vw, 28px);
       font-family: 'Great Vibes', cursive;
       margin-top: 5px;
-      order: 2; /* Label below hand icon */
+      order: 2;
+      /* Label below hand icon */
       text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
       white-space: nowrap;
     }
 
     .hand-icon {
       font-size: 36px;
-      transform: rotate(180deg); /* Points downward to envelope */
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      transform: rotate(180deg);
+      /* Points downward to envelope */
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
 
     @keyframes elegantPulseTop {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(15px); }
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(15px);
+      }
     }
 
     .hand-icon {
       font-size: 32px;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
 
     @keyframes elegantPulse {
-      0%, 100% { transform: scale(1) translateY(0); }
-      50% { transform: scale(1.1) translateY(-10px); }
+
+      0%,
+      100% {
+        transform: scale(1) translateY(0);
+      }
+
+      50% {
+        transform: scale(1.1) translateY(-10px);
+      }
     }
 
     #envelopeOverlay.interaction-started .env-guide-hand {
@@ -1856,12 +2095,14 @@
         transform: translateX(-50%) scale(1);
         opacity: 1;
       }
+
       20% {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -15%) scale(0.9);
         opacity: 1;
       }
+
       100% {
         left: 95%;
         top: 50%;
@@ -1871,8 +2112,16 @@
     }
 
     @keyframes pulseText {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; transform: translateY(-4px); }
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(-4px);
+      }
     }
 
 
@@ -1919,18 +2168,29 @@
     }
 
     @keyframes floatLeftHeart {
-      0% { transform: translateY(-50%) rotate(0deg); }
-      100% { transform: translateY(-53%) rotate(2deg); }
+      0% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-53%) rotate(2deg);
+      }
     }
 
     @keyframes floatRightHeart {
-      0% { transform: translateY(-50%) rotate(0deg); }
-      100% { transform: translateY(-53%) rotate(-2deg); }
+      0% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-53%) rotate(-2deg);
+      }
     }
 
     /* Hearts Joining Stage */
     #envelopeOverlay.hearts-joining .heart-half {
-      animation: none; /* Stop floating when joining */
+      animation: none;
+      /* Stop floating when joining */
     }
 
     #envelopeOverlay.hearts-joining .heart-half-left {
@@ -1953,16 +2213,17 @@
         transform: translate(var(--x-offset, -50%), -50%) scale(1);
         filter: drop-shadow(0 0 15px rgba(255, 42, 95, 0.7));
       }
+
       100% {
         transform: translate(var(--x-offset, -50%), -50%) scale(1.1);
         filter: drop-shadow(0 0 35px rgba(255, 42, 95, 1)) drop-shadow(0 0 18px #d4af37);
       }
     }
-    
+
     #envelopeOverlay.hearts-merged .heart-half-left {
       --x-offset: -50%;
     }
-    
+
     #envelopeOverlay.hearts-merged .heart-half-right {
       --x-offset: 50%;
     }
@@ -1977,7 +2238,7 @@
     #envelopeOverlay.interaction-started .heart-half-left {
       --x-offset: -50%;
     }
-    
+
     #envelopeOverlay.interaction-started .heart-half-right {
       --x-offset: 50%;
     }
@@ -1993,109 +2254,15 @@
     /* Styling for the letters inside the heart halves */
     .heart-letter {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; /* Ideal scale in SVG user space coordinates */
+      font-size: 18px;
+      /* Ideal scale in SVG user space coordinates */
       font-weight: 700;
-      fill: #fefaf0; /* Warm white */
+      fill: #fefaf0;
+      /* Warm white */
       text-anchor: middle;
       filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
       text-shadow: 0 0 5px rgba(212, 175, 55, 0.9);
       pointer-events: none;
-    }
-
-    /* ── BUTTERFLY STYLING ── */
-    #butterfliesContainer {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 12; /* Float in front of envelope wrapper but behind hearts */
-    }
-
-    .butterfly-mover {
-      position: absolute;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      transform: translate3d(var(--start-x), var(--start-y), 0) scale(var(--size, 1));
-      animation: flyPath var(--duration) linear infinite;
-      animation-delay: var(--delay);
-      opacity: 0;
-    }
-
-    .butterfly {
-      position: relative;
-      width: 16px;
-      height: 12px;
-      perspective: 100px;
-      transform-style: preserve-3d;
-      animation: flutterWave 2s ease-in-out infinite alternate;
-    }
-
-    .butterfly .wing {
-      position: absolute;
-      top: 0;
-      width: 8px;
-      height: 12px;
-      border-radius: 50% 50% 10% 40% / 40% 50% 30% 60%;
-      transform-origin: right center;
-    }
-
-    .butterfly .left-wing {
-      left: 0;
-      animation: flapLeft 0.12s infinite alternate ease-in-out;
-    }
-
-    .butterfly .right-wing {
-      right: 0;
-      transform: scaleX(-1);
-      transform-origin: left center;
-      animation: flapRight 0.12s infinite alternate ease-in-out;
-    }
-
-    /* Color Variants */
-    .bf-gold .wing {
-      background: radial-gradient(circle at center, #ffe8a3 0%, #b89547 100%);
-      box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
-    }
-    .bf-rose .wing {
-      background: radial-gradient(circle at center, #ff7ba0 0%, #b3002d 100%);
-      box-shadow: 0 0 6px rgba(255, 42, 95, 0.8);
-    }
-    .bf-emerald .wing {
-      background: radial-gradient(circle at center, #a2ebd0 0%, #113f27 100%);
-      box-shadow: 0 0 6px rgba(17, 63, 39, 0.8);
-    }
-
-    @keyframes flapLeft {
-      0% { transform: rotateY(0deg); }
-      100% { transform: rotateY(70deg); }
-    }
-
-    @keyframes flapRight {
-      0% { transform: scaleX(-1) rotateY(0deg); }
-      100% { transform: scaleX(-1) rotateY(70deg); }
-    }
-
-    @keyframes flutterWave {
-      0% { transform: translateY(0) translateX(-5px) rotate(-6deg); }
-      100% { transform: translateY(-10px) translateX(5px) rotate(6deg); }
-    }
-
-    @keyframes flyPath {
-      0% {
-        transform: translate3d(var(--start-x), var(--start-y), 0) scale(var(--size, 1)) rotate(var(--angle, 0deg));
-        opacity: 0;
-      }
-      10% {
-        opacity: var(--max-opacity);
-      }
-      90% {
-        opacity: var(--max-opacity);
-      }
-      100% {
-        transform: translate3d(var(--end-x), var(--end-y), 0) scale(var(--size, 1)) rotate(var(--angle, 0deg));
-        opacity: 0;
-      }
     }
 
     /* Ribbon styles */
@@ -2114,12 +2281,12 @@
       pointer-events: none;
       transition: transform 1s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.8s ease;
     }
-    
+
     .env-ribbon-h-left {
       left: 0;
       transform-origin: left center;
     }
-    
+
     .env-ribbon-h-right {
       right: 0;
       transform-origin: right center;
@@ -2140,12 +2307,12 @@
       pointer-events: none;
       transition: transform 1s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.8s ease;
     }
-    
+
     .env-ribbon-v-top {
       top: 0;
       transform-origin: center top;
     }
-    
+
     .env-ribbon-v-bottom {
       bottom: 0;
       transform-origin: center bottom;
@@ -2156,17 +2323,17 @@
       transform: translateY(-50%) translateX(-120%) rotate(-20deg);
       opacity: 0;
     }
-    
+
     #envelopeOverlay.interaction-started .env-ribbon-h-right {
       transform: translateY(-50%) translateX(120%) rotate(20deg);
       opacity: 0;
     }
-    
+
     #envelopeOverlay.interaction-started .env-ribbon-v-top {
       transform: translateX(-50%) translateY(-120%) rotate(15deg);
       opacity: 0;
     }
-    
+
     #envelopeOverlay.interaction-started .env-ribbon-v-bottom {
       transform: translateX(-50%) translateY(120%) rotate(-15deg);
       opacity: 0;
@@ -2182,11 +2349,13 @@
         transform: translate(-50%, -15%) scale(1);
         opacity: 1;
       }
+
       20% {
         left: 50%;
         transform: translate(-50%, -15%) scale(0.95);
         opacity: 1;
       }
+
       100% {
         left: 95%;
         transform: translate(-50%, -15%) scale(0.6);
@@ -2201,9 +2370,11 @@
         height: min(45vw, 150px);
         width: min(45vw, 150px);
       }
+
       .heart-half-left {
         left: 2%;
       }
+
       .heart-half-right {
         right: 2%;
       }
@@ -2446,9 +2617,6 @@
 
   <!-- ENVELOPE OVERLAY -->
   <div id="envelopeOverlay">
-    <!-- Flying Butterflies Background Container -->
-    <div id="butterfliesContainer"></div>
-
     <!-- SVG Defs for Gradients and Curves -->
     <svg width="0" height="0" style="position:absolute;">
       <defs>
@@ -2489,10 +2657,11 @@
         </linearGradient>
         <!-- Gold Glow Filter -->
         <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#d4af37" flood-opacity="0.8"/>
+          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#d4af37" flood-opacity="0.8" />
         </filter>
       </defs>
-      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z" fill="url(#heartGradLeft)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
+      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z"
+        fill="url(#heartGradLeft)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
       <!-- Letter M for Muhammed -->
       <text x="34" y="52" dominant-baseline="central" class="heart-letter">M</text>
     </svg>
@@ -2507,14 +2676,15 @@
           <stop offset="100%" style="stop-color:#40000a;stop-opacity:1" />
         </radialGradient>
       </defs>
-      <path d="M 50,20 C 65,5 85,10 85,35 C 85,55 65,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z" fill="url(#heartGradRight)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
+      <path d="M 50,20 C 65,5 85,10 85,35 C 85,55 65,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z"
+        fill="url(#heartGradRight)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
       <!-- Letter A for Afna -->
       <text x="66" y="52" dominant-baseline="central" class="heart-letter">A</text>
     </svg>
 
     <div class="env-wrapper">
       <div class="env-box" id="envBox">
-        
+
         <!-- LEFT Flap -->
         <svg class="env-flap-svg env-flap-left" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d="M 0,0 L 52,50 L 0,100 Z" />
@@ -2612,18 +2782,78 @@
   <div class="page" id="mainPage">
     <!-- SHARED BACKGROUND ELEMENTS -->
     <div class="bg-leaves">
-      <div class="bg-leaf l1"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l2"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l3"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l4"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l5"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l6"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l7"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l8"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l9"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l10"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l11"><svg viewBox="0 0 100 100"><path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" /><polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
-      <div class="bg-leaf l12"><svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(0 50 50)" /><rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(45 50 50)" /><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
+      <div class="bg-leaf l1"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l2"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l3"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l4"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l5"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l6"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l7"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l8"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l9"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l10"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l11"><svg viewBox="0 0 100 100">
+          <path d="M50 20 A30 30 0 1 0 80 50 A24 24 0 1 1 50 20 Z" fill="none" stroke="currentColor" stroke-width="3" />
+          <polygon points="68,28 72,36 81,37 74,43 76,51 68,47 60,51 62,43 55,37 64,36" fill="none"
+            stroke="currentColor" stroke-width="2" />
+        </svg></div>
+      <div class="bg-leaf l12"><svg viewBox="0 0 100 100">
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(0 50 50)" />
+          <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="3"
+            transform="rotate(45 50 50)" />
+          <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg></div>
     </div>
 
     <div class="ornament orn-tl">
@@ -2652,12 +2882,16 @@
         <!-- Outer Dashed Circle -->
         <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.3" stroke-dasharray="2,2" />
         <!-- Two overlapping rotated squares (Islamic 8-pointed star) -->
-        <rect x="15" y="15" width="70" height="70" fill="none" stroke="currentColor" stroke-width="0.6" transform="rotate(0 50 50)" />
-        <rect x="15" y="15" width="70" height="70" fill="none" stroke="currentColor" stroke-width="0.6" transform="rotate(45 50 50)" />
+        <rect x="15" y="15" width="70" height="70" fill="none" stroke="currentColor" stroke-width="0.6"
+          transform="rotate(0 50 50)" />
+        <rect x="15" y="15" width="70" height="70" fill="none" stroke="currentColor" stroke-width="0.6"
+          transform="rotate(45 50 50)" />
         <!-- Inner geometric details -->
         <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.4" />
-        <polygon points="50,25 57,43 75,50 57,57 50,75 43,57 25,50 43,43" fill="none" stroke="currentColor" stroke-width="0.4" />
-        <rect x="32" y="32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="0.3" transform="rotate(22.5 50 50)" />
+        <polygon points="50,25 57,43 75,50 57,57 50,75 43,57 25,50 43,43" fill="none" stroke="currentColor"
+          stroke-width="0.4" />
+        <rect x="32" y="32" width="36" height="36" fill="none" stroke="currentColor" stroke-width="0.3"
+          transform="rotate(22.5 50 50)" />
         <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="0.5" />
       </svg>
     </div>
@@ -2680,34 +2914,183 @@
 
     <!-- FLOWS -->
     <div id="groomFlow" class="flow-container">
-      <div class="hero">
-        <!-- Hanging Lanterns -->
-        <div class="hanging-lantern lantern-left">
-          <svg viewBox="0 0 100 150">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
-            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
-            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
-            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
-            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
-            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
-            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+      <div class="hero light-theme">
+        <!-- 3D Sunbeams and Light rays -->
+        <div class="theme-sunbeams"></div>
+        <!-- Cathedral double arch lines -->
+        <div class="theme-arch-frame"></div>
+        <!-- Side Curtains / Drapes -->
+        <div class="theme-curtain curtain-left"></div>
+        <div class="theme-curtain curtain-right"></div>
+        <!-- Top Valance drape -->
+        <div class="curtain-valance"></div>
+
+        <!-- Hanging Chandeliers (SVG) -->
+        <div class="theme-chandelier chandelier-left">
+          <svg viewBox="0 0 100 120" width="80" height="96">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
+            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
+            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
+            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
+            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="50" cy="95" r="2" fill="#ffe699" />
           </svg>
         </div>
-        <div class="hanging-lantern lantern-right">
-          <svg viewBox="0 0 100 150">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
-            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
-            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
-            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
-            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
-            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
-            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+        <div class="theme-chandelier chandelier-right">
+          <svg viewBox="0 0 100 120" width="80" height="96">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
+            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
+            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
+            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
+            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="50" cy="95" r="2" fill="#ffe699" />
           </svg>
         </div>
+
+        <!-- Corner Flower Clusters (SVG) -->
+        <div class="theme-flowers top-flowers-left">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradG" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradG" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradG" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradG)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradG)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradG)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers top-flowers-right">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradG_TR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradG_TR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradG_TR" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_TR)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_TR)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_TR)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_TR)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_TR)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_TR)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers bottom-flowers-left">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradG_BL" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradG_BL" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradG_BL" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_BL)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_BL)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_BL)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_BL)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_BL)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_BL)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers bottom-flowers-right">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradG_BR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradG_BR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradG_BR" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradG_BR)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradG_BR)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradG_BR)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradG_BR)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradG_BR)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradG_BR)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Muhammed</h1>
@@ -2729,30 +3112,40 @@
       <div class="invite-quote-section rv">
         <!-- Mosque Dome Silhouette Divider -->
         <div style="text-align: center; margin-bottom: 24px; color: var(--gold); opacity: 0.85;">
-          <svg viewBox="0 0 100 30" width="100" height="30" style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
+          <svg viewBox="0 0 100 30" width="100" height="30"
+            style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
             <path d="M 5,25 Q 25,25 35,18 Q 45,5 50,0 Q 55,5 65,18 Q 75,25 95,25" />
             <circle cx="50" cy="-3.5" r="1.5" fill="currentColor" />
           </svg>
         </div>
-        <div class="quote-deity" style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In the name of Allah, the Most Gracious, the Most Merciful"</div>
-        <div class="quote-deity" style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة الله وبركاته</div>
-        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 25px;">"Peace, mercy, and blessings of Allah be upon you"</div>
+        <div class="quote-deity"
+          style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ
+          الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In
+          the name of Allah, the Most Gracious, the Most Merciful"</div>
+        <div class="quote-deity"
+          style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة
+          الله وبركاته</div>
+        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 25px;">
+          "Peace, mercy, and blessings of Allah be upon you"</div>
         <h2 class="quote-title">Wedding Invitation</h2>
         <div class="quote-host">
           <strong>Mr. M. Abdul Jaleel &amp; Mrs. Shophida Beegum</strong><br>
           <span class="host-sub">M. S. House, T. K. Nagar, Kuthirakulam P. O., Vembayam<br>Mob: 9048103208</span>
         </div>
         <div class="quote-text">
-          cordially request the honour of your presence with family on the auspicious occasion of the marriage of their son
+          cordially request the honour of your presence with family on the auspicious occasion of the marriage of their
+          son
         </div>
-        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
+        <div class="quote-text"
+          style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 16px; margin: 5px 0;">
           with
         </div>
-        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
+        <div class="quote-text"
+          style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Afna H.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
@@ -2777,7 +3170,8 @@
             <div class="dc-ico">🕌</div>
             <div class="dc-lbl">Sunday</div>
             <div class="dc-val">Nikah Ceremony</div>
-            <div class="dc-sub">19 July 2026 (1448 Safar 4) · 11:30 AM - 12:30 PM<br>Alakapuri Convention Centre, Sasthamangalam</div>
+            <div class="dc-sub">19 July 2026 (1448 Safar 4) · 11:30 AM - 12:30 PM<br>Alakapuri Convention Centre,
+              Sasthamangalam</div>
           </div>
           <div class="detail-card rv">
             <div class="dc-ico">🚗</div>
@@ -2795,34 +3189,183 @@
     </div>
 
     <div id="brideFlow" class="flow-container hidden">
-      <div class="hero">
-        <!-- Hanging Lanterns -->
-        <div class="hanging-lantern lantern-left">
-          <svg viewBox="0 0 100 150">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
-            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
-            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
-            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
-            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
-            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
-            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+      <div class="hero light-theme">
+        <!-- 3D Sunbeams and Light rays -->
+        <div class="theme-sunbeams"></div>
+        <!-- Cathedral double arch lines -->
+        <div class="theme-arch-frame"></div>
+        <!-- Side Curtains / Drapes -->
+        <div class="theme-curtain curtain-left"></div>
+        <div class="theme-curtain curtain-right"></div>
+        <!-- Top Valance drape -->
+        <div class="curtain-valance"></div>
+
+        <!-- Hanging Chandeliers (SVG) -->
+        <div class="theme-chandelier chandelier-left">
+          <svg viewBox="0 0 100 120" width="80" height="96">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
+            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
+            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
+            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
+            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="50" cy="95" r="2" fill="#ffe699" />
           </svg>
         </div>
-        <div class="hanging-lantern lantern-right">
-          <svg viewBox="0 0 100 150">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="var(--gold)" stroke-width="2" />
-            <circle cx="50" cy="45" r="5" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 38,50 L 62,50 L 56,60 L 44,60 Z" fill="var(--gold)" />
-            <path d="M 44,60 L 56,60 L 64,90 L 50,105 L 36,90 Z" fill="none" stroke="var(--gold)" stroke-width="2" />
-            <path d="M 50,65 Q 42,78 50,95 Q 58,78 50,65 Z" fill="rgba(181, 148, 91, 0.15)" stroke="var(--gold)" stroke-width="1" />
-            <circle cx="50" cy="80" r="3" fill="var(--gold)" />
-            <path d="M 40,105 L 60,105 L 50,115 Z" fill="var(--gold)" />
-            <line x1="50" y1="115" x2="50" y2="130" stroke="var(--gold)" stroke-width="1.5" />
-            <circle cx="50" cy="133" r="3" fill="var(--gold)" />
+        <div class="theme-chandelier chandelier-right">
+          <svg viewBox="0 0 100 120" width="80" height="96">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" stroke-width="1.5" />
+            <path d="M 50,40 Q 40,55 25,60 Q 50,65 50,85 Q 50,65 75,60 Q 60,55 50,40 Z" fill="none" stroke="#d4af37" stroke-width="1.2" />
+            <path d="M 50,55 Q 35,70 15,65 Q 15,55 15,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <path d="M 50,55 Q 65,70 85,65 Q 85,55 85,55" fill="none" stroke="#d4af37" stroke-width="1" />
+            <rect x="12" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 15,50 Q 15,42 15,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="82" y="50" width="6" height="6" fill="#d4af37" />
+            <path d="M 85,50 Q 85,42 85,42" stroke="#ffb84d" stroke-width="2" />
+            <rect x="47" y="85" width="6" height="6" fill="#d4af37" />
+            <path d="M 50,85 Q 50,77 50,77" stroke="#ffb84d" stroke-width="2" />
+            <circle cx="25" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="75" cy="72" r="1.5" fill="#ffe699" />
+            <circle cx="50" cy="95" r="2" fill="#ffe699" />
           </svg>
         </div>
+
+        <!-- Corner Flower Clusters (SVG) -->
+        <div class="theme-flowers top-flowers-left">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradB" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradB" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradB)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradB)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradB)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers top-flowers-right">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradB_TR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradB_TR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradB_TR" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_TR)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_TR)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_TR)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_TR)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_TR)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_TR)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers bottom-flowers-left">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradB_BL" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradB_BL" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradB_BL" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_BL)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_BL)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_BL)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_BL)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_BL)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_BL)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+        <div class="theme-flowers bottom-flowers-right">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="roseGradB_BR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffccd5" />
+                <stop offset="50%" style="stop-color:#ff8a9f" />
+                <stop offset="100%" style="stop-color:#d63a56" />
+              </radialGradient>
+              <radialGradient id="peachGradB_BR" cx="35%" cy="30%" r="60%">
+                <stop offset="0%" style="stop-color:#ffeed6" />
+                <stop offset="60%" style="stop-color:#ffb38a" />
+                <stop offset="100%" style="stop-color:#e0662d" />
+              </radialGradient>
+              <linearGradient id="leafGradB_BR" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a8cca0" />
+                <stop offset="100%" style="stop-color:#4d7345" />
+              </linearGradient>
+            </defs>
+            <path d="M 40,40 Q 20,20 15,45 Q 30,55 40,40 Z" fill="url(#leafGradB_BR)" />
+            <path d="M 80,40 Q 100,20 105,45 Q 90,55 80,40 Z" fill="url(#leafGradB_BR)" />
+            <path d="M 40,80 Q 20,100 15,75 Q 30,65 40,80 Z" fill="url(#leafGradB_BR)" />
+            <circle cx="60" cy="60" r="22" fill="url(#roseGradB_BR)" />
+            <path d="M 60,45 C 50,45 50,55 60,55 C 70,55 70,45 60,45 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 48,60 C 48,50 58,50 58,60 C 58,70 48,70 48,60 Z" fill="#ffccd5" opacity="0.8" />
+            <path d="M 72,60 C 72,50 62,50 62,60 C 62,70 72,70 72,60 Z" fill="#ffccd5" opacity="0.8" />
+            <circle cx="60" cy="60" r="8" fill="#d63a56" />
+            <circle cx="35" cy="35" r="15" fill="url(#peachGradB_BR)" />
+            <circle cx="35" cy="35" r="4" fill="#ffd1b3" />
+            <circle cx="85" cy="85" r="17" fill="url(#peachGradB_BR)" />
+            <circle cx="85" cy="85" r="5" fill="#ffd1b3" />
+          </svg>
+        </div>
+
         <div class="hero-top-label rv">You Are Invited To Celebrate</div>
         <div class="hero-names rv">
           <h1>Afna</h1>
@@ -2844,30 +3387,40 @@
       <div class="invite-quote-section rv">
         <!-- Mosque Dome Silhouette Divider -->
         <div style="text-align: center; margin-bottom: 24px; color: var(--gold); opacity: 0.85;">
-          <svg viewBox="0 0 100 30" width="100" height="30" style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
+          <svg viewBox="0 0 100 30" width="100" height="30"
+            style="display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.2;">
             <path d="M 5,25 Q 25,25 35,18 Q 45,5 50,0 Q 55,5 65,18 Q 75,25 95,25" />
             <circle cx="50" cy="-3.5" r="1.5" fill="currentColor" />
           </svg>
         </div>
-        <div class="quote-deity" style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In the name of Allah, the Most Gracious, the Most Merciful"</div>
-        <div class="quote-deity" style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة الله وبركاته</div>
-        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 25px;">"Peace, mercy, and blessings of Allah be upon you"</div>
+        <div class="quote-deity"
+          style="font-size: 20px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">بِسْمِ اللهِ
+          الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 12px;">"In
+          the name of Allah, the Most Gracious, the Most Merciful"</div>
+        <div class="quote-deity"
+          style="font-size: 16px; font-weight: 600; font-family: 'Amiri', serif; letter-spacing: 0;">السلام عليكم ورحمة
+          الله وبركاته</div>
+        <div class="quote-deity" style="font-style: italic; font-size: 12px; margin-top: 5px; margin-bottom: 25px;">
+          "Peace, mercy, and blessings of Allah be upon you"</div>
         <h2 class="quote-title">Wedding Invitation</h2>
         <div class="quote-host">
           <strong>Mr. A. Abdul Jabbar &amp; Mrs. Haleema N.</strong><br>
-          <span class="host-sub">Beema Manzil, TC 35/1101, Valiyavila, Vattiyoorkavu P.O, Thiruvananthapuram-695 013<br>Mob: 8281467664, 8075905105</span>
+          <span class="host-sub">Beema Manzil, TC 35/1101, Valiyavila, Vattiyoorkavu P.O, Thiruvananthapuram-695
+            013<br>Mob: 8281467664, 8075905105</span>
         </div>
         <div class="quote-text">
           request the honour of your presence with family on the auspicious occasion of the marriage of our daughter
         </div>
-        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
+        <div class="quote-text"
+          style="font-size: 26px; font-weight: bold; color: var(--gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Afna H.
         </div>
         <div class="quote-text" style="font-size: 16px; margin: 5px 0;">
           with
         </div>
-        <div class="quote-text" style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
+        <div class="quote-text"
+          style="font-size: 26px; font-weight: bold; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px;">
           Muhammed J. S.
         </div>
         <div class="quote-text" style="font-size: 12px; margin-top: 10px;">
@@ -2932,7 +3485,8 @@
             <div class="dc-ico">📍</div>
             <div class="dc-lbl">Venue Location</div>
             <div class="dc-val" style="font-size: 20px;">Alakapuri Convention Centre</div>
-            <div class="dc-sub" style="margin-bottom: 15px;">Kochar Road, Sasthamangalam, Thiruvananthapuram, Kerala 695010</div>
+            <div class="dc-sub" style="margin-bottom: 15px;">Kochar Road, Sasthamangalam, Thiruvananthapuram, Kerala
+              695010</div>
           </div>
           <!-- Map Preview -->
           <div
@@ -3061,586 +3615,533 @@
         <div class="footer-names">Afna <span class="amp">&amp;</span> Muhammed</div>
         <div class="footer-date">19 · 07 · 2026 &nbsp; · &nbsp; Thiruvananthapuram</div>
         <div class="footer-quote">Forever begins here</div>
-    <div class="ornament orn-bl">
-      <svg viewBox="0 0 120 120">
-        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
-        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
-        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
-        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
-        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
-        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
-      </svg>
-    </div>
-    <div class="ornament orn-br">
-      <svg viewBox="0 0 120 120">
-        <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
-        <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
-        <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
-        <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
-        <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
-        <circle cx="35" cy="35" r="2.5" fill="currentColor" />
-      </svg>
-    </div>
-    </div>
+        <div class="ornament orn-bl">
+          <svg viewBox="0 0 120 120">
+            <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+            <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+            <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+            <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+            <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+            <circle cx="35" cy="35" r="2.5" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="ornament orn-br">
+          <svg viewBox="0 0 120 120">
+            <path d="M0 0 L120 0 M0 0 L0 120" stroke="currentColor" stroke-width="2.5" fill="none" />
+            <path d="M8 8 L112 8 M8 8 L8 112" stroke="currentColor" stroke-width="0.8" fill="none" />
+            <path d="M 8,40 Q 30,30 40,8 M 40,8 Q 30,30 8,40 Z" fill="currentColor" opacity="0.8" />
+            <path d="M 8,70 Q 50,50 70,8" stroke="currentColor" stroke-width="1.2" fill="none" />
+            <polygon points="20,20 22,25 27,27 22,29 20,34 18,29 13,27 18,25" fill="currentColor" />
+            <circle cx="35" cy="35" r="2.5" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
 
 
-    <script>
-      // ── FIREFLIES CANVAS ──
-      (function () {
-        const canvas = document.getElementById('fireflies');
-        const ctx = canvas.getContext('2d');
-        let W, H;
+      <script>
+        // ── FIREFLIES CANVAS ──
+        (function () {
+          const canvas = document.getElementById('fireflies');
+          const ctx = canvas.getContext('2d');
+          let W, H;
 
-        function resize() {
-          W = canvas.width = window.innerWidth;
-          H = canvas.height = window.innerHeight;
+          function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+          }
+          resize();
+          window.addEventListener('resize', resize);
+
+          const particles = [];
+          const colors = ['167, 215, 197', '200, 169, 110', '228, 213, 170'];
+          for (let i = 0; i < 50; i++) {
+            particles.push({
+              id: i,
+              x: Math.random() * W,
+              y: Math.random() * H,
+              r: 1.2 + Math.random() * 1.8,
+              dx: (Math.random() - .5) * .25,
+              dy: (Math.random() - .5) * .25,
+              a: Math.random() * Math.PI * 2,
+              speed: .004 + Math.random() * .008,
+              color: colors[i % colors.length]
+            });
+          }
+
+          function draw() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => {
+              p.a += p.speed;
+              const alpha = .15 + Math.sin(p.a) * .12;
+              p.x += p.dx;
+              p.y += p.dy;
+              if (p.x < -20) p.x = W + 20;
+              if (p.x > W + 20) p.x = -20;
+              if (p.y < -20) p.y = H + 20;
+              if (p.y > H + 20) p.y = -20;
+
+              ctx.beginPath();
+              const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
+              g.addColorStop(0, `rgba(${p.color}, ${alpha})`);
+              g.addColorStop(1, `rgba(${p.color}, 0)`);
+              ctx.fillStyle = g;
+              ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
+              ctx.fill();
+
+              ctx.beginPath();
+              ctx.fillStyle = `rgba(${p.color}, ${alpha * 1.8})`;
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fill();
+            });
+            requestAnimationFrame(draw);
+          }
+          draw();
+        })();
+
+        // ── REVEAL ──
+        document.querySelectorAll('.rv').forEach(el => {
+          new IntersectionObserver(ents => {
+            ents.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+          }, { threshold: .08 }).observe(el);
+        });
+
+        // ── MUSIC (Initialization) ──
+        const music = document.getElementById('bgMusic');
+        if (music) {
+          music.load();
         }
-        resize();
-        window.addEventListener('resize', resize);
 
-        const particles = [];
-        const colors = ['167, 215, 197', '200, 169, 110', '228, 213, 170'];
-        for (let i = 0; i < 50; i++) {
-          particles.push({
-            id: i,
-            x: Math.random() * W,
-            y: Math.random() * H,
-            r: 1.2 + Math.random() * 1.8,
-            dx: (Math.random() - .5) * .25,
-            dy: (Math.random() - .5) * .25,
-            a: Math.random() * Math.PI * 2,
-            speed: .004 + Math.random() * .008,
-            color: colors[i % colors.length]
-          });
+        // ── COUNTDOWN ──
+        let weddingDate = new Date('2026-07-19T11:30:00');
+
+        function countdownTick() {
+          const diff = Math.max(0, weddingDate - new Date());
+          document.getElementById('D').textContent = String(Math.floor(diff / 864e5)).padStart(2, '0');
+          document.getElementById('H').textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0');
+          document.getElementById('M').textContent = String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0');
+          document.getElementById('S').textContent = String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0');
+        }
+        countdownTick(); setInterval(countdownTick, 1000);
+
+        // ── COUNTDOWN ──
+
+        // ── FLOWER SPARKS ──
+        const flowerEmojis = ['🌸', '🌺', '🌼', '🌹', '🌷', '🍃', '🌻', '✨', '🍂', '🍁'];
+        function spawnSparks(x, y) {
+          const count = 15; // More sparks for a better effect
+          for (let i = 0; i < count; i++) {
+            const s = document.createElement('div');
+            s.className = 'spark-particle';
+            s.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+
+            const angle = (Math.PI * 2 / count) * i + (Math.random() - .5);
+            const dist = 60 + Math.random() * 100; // Slightly smaller radius too
+            const size = 15 + Math.random() * 15; // Smaller sparks (15-30px)
+
+            // Use absolute positioning relative to the entire document
+            s.style.left = x + 'px';
+            s.style.top = y + 'px';
+            s.style.fontSize = size + 'px';
+            s.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+            s.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+            s.style.animationDuration = (1 + Math.random() * 0.8) + 's';
+
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 2000);
+          }
         }
 
-        function draw() {
-          ctx.clearRect(0, 0, W, H);
-          particles.forEach(p => {
-            p.a += p.speed;
-            const alpha = .15 + Math.sin(p.a) * .12;
-            p.x += p.dx;
-            p.y += p.dy;
-            if (p.x < -20) p.x = W + 20;
-            if (p.x > W + 20) p.x = -20;
-            if (p.y < -20) p.y = H + 20;
-            if (p.y > H + 20) p.y = -20;
-
-            ctx.beginPath();
-            const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-            g.addColorStop(0, `rgba(${p.color}, ${alpha})`);
-            g.addColorStop(1, `rgba(${p.color}, 0)`);
-            ctx.fillStyle = g;
-            ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.fillStyle = `rgba(${p.color}, ${alpha * 1.8})`;
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
-          });
-          requestAnimationFrame(draw);
+        // Global listener for flower effect (Click & Touch)
+        function triggerSparks(e) {
+          let x, y;
+          if (e.type.startsWith('touch')) {
+            x = e.touches[0].pageX;
+            y = e.touches[0].pageY;
+          } else {
+            x = e.pageX;
+            y = e.pageY;
+          }
+          spawnSparks(x, y);
         }
-        draw();
-      })();
+        document.addEventListener('mousedown', triggerSparks);
+        document.addEventListener('touchstart', triggerSparks, { passive: true });
 
-      // ── FLYING BUTTERFLIES BACKGROUND ──
-      (function () {
-        const container = document.getElementById('butterfliesContainer');
-        if (!container) return;
-
-        const count = 30; // Spawns 30 small butterflies
-        const colors = ['bf-gold', 'bf-rose', 'bf-emerald'];
-
-        for (let i = 0; i < count; i++) {
-          const mover = document.createElement('div');
-          mover.className = `butterfly-mover ${colors[Math.floor(Math.random() * colors.length)]}`;
-
-          // Randomize sizes and durations
-          const size = 0.6 + Math.random() * 0.5; // Scale: 0.6 to 1.1 (small size)
-          const duration = 9 + Math.random() * 8; // Duration: 9s to 17s (slow flying)
-          // Negative delay so they are already spread across the screen on load
-          const delay = -(Math.random() * duration);
-
-          // Randomize flight path (from bottom to top)
-          const startX = (10 + Math.random() * 80) + 'vw';
-          const endX = (parseFloat(startX) + (Math.random() * 30 - 15)) + 'vw';
-          const startY = '105vh';
-          const endY = '-15vh';
-          const maxOpacity = 0.3 + Math.random() * 0.4; // Subtle visibility (0.3 to 0.7)
-          const angle = (Math.random() * 30 - 15) + 'deg'; // Slight angle tilt
-
-          mover.style.setProperty('--start-x', startX);
-          mover.style.setProperty('--end-x', endX);
-          mover.style.setProperty('--start-y', startY);
-          mover.style.setProperty('--end-y', endY);
-          mover.style.setProperty('--size', size);
-          mover.style.setProperty('--duration', duration + 's');
-          mover.style.setProperty('--delay', delay + 's');
-          mover.style.setProperty('--max-opacity', maxOpacity);
-          mover.style.setProperty('--angle', angle);
-
-          // Create the butterfly element
-          const butterfly = document.createElement('div');
-          butterfly.className = 'butterfly';
-
-          const leftWing = document.createElement('div');
-          leftWing.className = 'wing left-wing';
-
-          const rightWing = document.createElement('div');
-          rightWing.className = 'wing right-wing';
-
-          butterfly.appendChild(leftWing);
-          butterfly.appendChild(rightWing);
-          mover.appendChild(butterfly);
-          container.appendChild(mover);
+        function getCenter(el) {
+          const r = el.getBoundingClientRect();
+          return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
         }
-      })();
 
-      // ── REVEAL ──
-      document.querySelectorAll('.rv').forEach(el => {
-        new IntersectionObserver(ents => {
-          ents.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-        }, { threshold: .08 }).observe(el);
-      });
+        const TO_EMAIL = 'jebin6884@gmail.com, jeeshmaj16@gmail.com, balakannan.bk40@gmail.com';
+        const API_URL = '/send-email'; // Change this to your PythonAnywhere URL if hosted separately
+        let userSelectedSide = "Not Specified";
 
-      // ── MUSIC (Initialization) ──
-      const music = document.getElementById('bgMusic');
-      if (music) {
-        music.load();
-      }
+        // ── UI SOUNDS ──
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-      // ── COUNTDOWN ──
-      let weddingDate = new Date('2026-07-19T11:30:00');
+        function playSound(type) {
+          if (!audioCtx) return;
+          if (audioCtx.state === 'suspended') audioCtx.resume();
 
-      function countdownTick() {
-        const diff = Math.max(0, weddingDate - new Date());
-        document.getElementById('D').textContent = String(Math.floor(diff / 864e5)).padStart(2, '0');
-        document.getElementById('H').textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0');
-        document.getElementById('M').textContent = String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0');
-        document.getElementById('S').textContent = String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0');
-      }
-      countdownTick(); setInterval(countdownTick, 1000);
+          const t = audioCtx.currentTime;
 
-      // ── COUNTDOWN ──
-
-      // ── FLOWER SPARKS ──
-      const flowerEmojis = ['🌸', '🌺', '🌼', '🌹', '🌷', '🍃', '🌻', '✨', '🍂', '🍁'];
-      function spawnSparks(x, y) {
-        const count = 15; // More sparks for a better effect
-        for (let i = 0; i < count; i++) {
-          const s = document.createElement('div');
-          s.className = 'spark-particle';
-          s.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
-
-          const angle = (Math.PI * 2 / count) * i + (Math.random() - .5);
-          const dist = 60 + Math.random() * 100; // Slightly smaller radius too
-          const size = 15 + Math.random() * 15; // Smaller sparks (15-30px)
-
-          // Use absolute positioning relative to the entire document
-          s.style.left = x + 'px';
-          s.style.top = y + 'px';
-          s.style.fontSize = size + 'px';
-          s.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
-          s.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
-          s.style.animationDuration = (1 + Math.random() * 0.8) + 's';
-
-          document.body.appendChild(s);
-          setTimeout(() => s.remove(), 2000);
-        }
-      }
-
-      // Global listener for flower effect (Click & Touch)
-      function triggerSparks(e) {
-        let x, y;
-        if (e.type.startsWith('touch')) {
-          x = e.touches[0].pageX;
-          y = e.touches[0].pageY;
-        } else {
-          x = e.pageX;
-          y = e.pageY;
-        }
-        spawnSparks(x, y);
-      }
-      document.addEventListener('mousedown', triggerSparks);
-      document.addEventListener('touchstart', triggerSparks, { passive: true });
-
-      function getCenter(el) {
-        const r = el.getBoundingClientRect();
-        return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-      }
-
-      const TO_EMAIL = 'jebin6884@gmail.com, jeeshmaj16@gmail.com, balakannan.bk40@gmail.com';
-      const API_URL = '/send-email'; // Change this to your PythonAnywhere URL if hosted separately
-      let userSelectedSide = "Not Specified";
-
-      // ── UI SOUNDS ──
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-      function playSound(type) {
-        if (!audioCtx) return;
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-
-        const t = audioCtx.currentTime;
-
-        if (type === 'select') {
-          // Champagne Glass Clink (Marriage Toast)
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(2000, t); // High pitch glass
-          osc.frequency.exponentialRampToValueAtTime(1900, t + 0.1);
-
-          gain.gain.setValueAtTime(0, t);
-          gain.gain.linearRampToValueAtTime(0.2, t + 0.01); // Sharp hit
-          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4); // Fast ring out
-
-          osc.start(t);
-          osc.stop(t + 0.4);
-
-        } else if (type === 'send') {
-          // Grand Celebratory Chimes ringing over 5 seconds
-          const bellFreqs = [523.25, 659.25, 523.25, 659.25, 523.25, 659.25]; // Alternating C5 and E5
-          bellFreqs.forEach((freq, i) => {
+          if (type === 'select') {
+            // Champagne Glass Clink (Marriage Toast)
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
-
-            // Sine wave for base bell tone
-            osc.type = 'sine';
-            osc.frequency.value = freq;
-
-            // Harmonic overtone to create a metallic, large bell sound
-            const oscHarmonic = audioCtx.createOscillator();
-            oscHarmonic.type = 'sine';
-            oscHarmonic.frequency.value = freq * 1.5; // Perfect fifth overtone
-            oscHarmonic.connect(gain);
-
             osc.connect(gain);
             gain.connect(audioCtx.destination);
 
-            const start = t + (i * 0.8); // Bell strikes every 0.8 seconds
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(2000, t); // High pitch glass
+            osc.frequency.exponentialRampToValueAtTime(1900, t + 0.1);
 
-            gain.gain.setValueAtTime(0, start);
-            gain.gain.linearRampToValueAtTime(0.15, start + 0.02); // Hard attack of the clapper
-            gain.gain.exponentialRampToValueAtTime(0.001, start + 3.5); // Long metallic decay
+            gain.gain.setValueAtTime(0, t);
+            gain.gain.linearRampToValueAtTime(0.2, t + 0.01); // Sharp hit
+            gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4); // Fast ring out
 
-            osc.start(start);
-            oscHarmonic.start(start);
-            osc.stop(start + 3.5);
-            oscHarmonic.stop(start + 3.5);
-          });
-        }
-      }
+            osc.start(t);
+            osc.stop(t + 0.4);
 
-      function toggleGuests(show) {
-        const gw = document.getElementById('guestsWrapper');
-        if (show) {
-          gw.classList.remove('hidden');
-        } else {
-          gw.classList.add('hidden');
-        }
-      }
+          } else if (type === 'send') {
+            // Grand Celebratory Chimes ringing over 5 seconds
+            const bellFreqs = [523.25, 659.25, 523.25, 659.25, 523.25, 659.25]; // Alternating C5 and E5
+            bellFreqs.forEach((freq, i) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
 
-      function setWish(msg) {
-        document.getElementById('wishText').value = msg;
-        updateCount();
-        playSound('select');
+              // Sine wave for base bell tone
+              osc.type = 'sine';
+              osc.frequency.value = freq;
 
-        // Highlight effect
-        const tx = document.getElementById('wishText');
-        tx.style.borderColor = 'var(--gold)';
-        setTimeout(() => tx.style.borderColor = '', 1000);
-      }
+              // Harmonic overtone to create a metallic, large bell sound
+              const oscHarmonic = audioCtx.createOscillator();
+              oscHarmonic.type = 'sine';
+              oscHarmonic.frequency.value = freq * 1.5; // Perfect fifth overtone
+              oscHarmonic.connect(gain);
 
-      function updateCount() {
-        document.getElementById('charCount').textContent = `${document.getElementById('wishText').value.length} / 300`;
-      }
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
 
-      function submitResponse() {
-        const name = document.getElementById('rsvpName').value.trim();
-        const attendance = document.querySelector('input[name="attendance"]:checked').value;
-        const guests = document.getElementById('rsvpGuests').value;
-        const wish = document.getElementById('wishText').value.trim();
+              const start = t + (i * 0.8); // Bell strikes every 0.8 seconds
 
-        if (!name) {
-          document.getElementById('rsvpName').focus();
-          document.getElementById('rsvpName').placeholder = 'Please enter your name ✍️';
-          return;
-        }
+              gain.gain.setValueAtTime(0, start);
+              gain.gain.linearRampToValueAtTime(0.15, start + 0.02); // Hard attack of the clapper
+              gain.gain.exponentialRampToValueAtTime(0.001, start + 3.5); // Long metallic decay
 
-        const btn = document.getElementById('rsvpBtnSend');
-        const { x, y } = getCenter(btn);
-        spawnSparks(x, y);
-        playSound('send');
-
-        // Prepare unified message
-        let attendanceText = attendance === 'Yes'
-          ? `joyfully accepts (Guests: ${guests})`
-          : `regretfully declines`;
-
-        const sub = `Wedding Attendance: ${name} (${attendance})`;
-        const body = `Guest Name: ${name}\nSide: ${userSelectedSide}\nAttendance: ${attendanceText}\n\nMessage/Blessing:\n${wish || "No message left."}`;
-
-        // Optimistic UI Update
-        btn.innerHTML = '<span>Response Sent ♥</span>';
-        btn.style.pointerEvents = 'none';
-        btn.style.background = 'var(--sage)';
-        btn.style.boxShadow = 'none';
-        document.getElementById('sentMsg').style.display = 'block';
-
-        // Send to Flask Backend with tracking data
-        fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            subject: sub, 
-            body: body,
-            name: name,
-            guests: guests,
-            side: userSelectedSide,
-            message: wish,
-            attendance: attendance
-          })
-        }).then(res => {
-          if (!res.ok) throw new Error('Server returned error');
-          return res.json();
-        }).then(data => {
-          console.log("Flask Response:", data);
-        }).catch(err => {
-          console.error("Fetch Error:", err);
-          alert("Oops! There was an error sending your response. Please check if the server is running.");
-        });
-      }
-
-      // ── SECURITY & DETERRENTS ──
-      document.addEventListener('contextmenu', event => event.preventDefault());
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'PrintScreen') {
-          navigator.clipboard.writeText('');
-          alert("Screenshots are disabled on this page.");
-          e.preventDefault();
-        }
-        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'S' || e.key === 'P')) {
-          e.preventDefault();
-        }
-      });
-
-
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          document.body.style.opacity = '0';
-        } else {
-          document.body.style.opacity = '1';
-        }
-      });
-
-      // ── ENVELOPE OPENING LOGIC ──
-      function openInvitation() {
-        console.log("Opening Invitation...");
-        const env = document.getElementById('envBox');
-        const overlay = document.getElementById('envelopeOverlay');
-        const selection = document.getElementById('selectionOverlay');
-        const music = document.getElementById('bgMusic');
-        const musicCtrl = document.getElementById('musicControl');
-
-        // Prevent double trigger if already animating
-        if (overlay.classList.contains('hearts-joining')) return;
-
-        // 1. Start music immediately (Interaction)
-        const openSfx = document.getElementById('openSound');
-        if (openSfx) {
-          openSfx.volume = 0.5;
-          openSfx.play().catch(e => console.log("SFX blocked"));
-        }
-
-        if (music) {
-          music.volume = 0.6;
-          const playPromise = music.play();
-
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              if (musicCtrl) musicCtrl.style.display = 'flex';
-            }).catch(e => {
-              console.log("Audio play blocked", e);
+              osc.start(start);
+              oscHarmonic.start(start);
+              osc.stop(start + 3.5);
+              oscHarmonic.stop(start + 3.5);
             });
           }
         }
 
-        // Start hearts joining animation (slow motion)
-        overlay.classList.add('hearts-joining');
-
-        // After hearts join (2.5 seconds)
-        setTimeout(() => {
-          overlay.classList.add('hearts-merged');
-          triggerMagicSparks();
-
-          // Wait 0.8 seconds for the healed pulse/glow effect, then open the envelope
-          setTimeout(() => {
-            overlay.classList.add('interaction-started');
-
-            // Open flap
-            setTimeout(() => {
-              env.classList.add('env-open');
-            }, 800);
-
-            // Allow card to slide out
-            setTimeout(() => {
-              env.classList.add('env-revealing');
-            }, 1100);
-
-            // After card exits, show selection overlay
-            setTimeout(() => {
-              overlay.classList.add('hidden');
-              selection.classList.remove('hidden');
-            }, 3600);
-
-          }, 800);
-
-        }, 2500);
-      }
-
-
-      function triggerMagicSparks() {
-        const container = document.getElementById('sparksContainer');
-        if (!container) return;
-
-        // Create Sparks
-        for (let i = 0; i < 70; i++) {
-          const s = document.createElement('div');
-          s.className = 'spark';
-          const angle = Math.random() * Math.PI * 2;
-          const dist = 150 + Math.random() * 450;
-          s.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
-          s.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
-          s.style.left = '50%';
-          s.style.top = '50%';
-          s.style.width = s.style.height = `${3 + Math.random() * 5}px`;
-          s.style.animationDelay = `${Math.random() * 0.5}s`;
-          container.appendChild(s);
-          setTimeout(() => s.remove(), 2500);
-        }
-
-        // Create Stars
-        const starIcons = ['⭐', '✨', '🌟', '✴️', '💫'];
-        for (let i = 0; i < 45; i++) {
-          const star = document.createElement('div');
-          star.className = 'magic-star';
-          star.innerHTML = starIcons[Math.floor(Math.random() * starIcons.length)];
-          const angle = Math.random() * Math.PI * 2;
-          const dist1 = 80 + Math.random() * 200;
-          const dist2 = 300 + Math.random() * 600;
-          
-          star.style.setProperty('--tx', `${Math.cos(angle) * dist1}px`);
-          star.style.setProperty('--ty', `${Math.sin(angle) * dist1}px`);
-          star.style.setProperty('--tx2', `${Math.cos(angle) * dist2}px`);
-          star.style.setProperty('--ty2', `${Math.sin(angle) * dist2}px`);
-          
-          star.style.left = '50%';
-          star.style.top = '50%';
-          star.style.fontSize = `${16 + Math.random() * 14}px`;
-          star.style.animationDelay = `${Math.random() * 0.4}s`;
-          container.appendChild(star);
-          setTimeout(() => star.remove(), 2500);
-        }
-      }
-
-      function selectSide(side) {
-        userSelectedSide = side === 'Groom' ? "Muhammed side" : "Afna side";
-        console.log("Side selected:", side);
-        const selection = document.getElementById('selectionOverlay');
-        const groomFlow = document.getElementById('groomFlow');
-        const brideFlow = document.getElementById('brideFlow');
-
-        if (!selection || !groomFlow || !brideFlow) return;
-
-        playSound('select');
-        selection.style.opacity = '0';
-
-        setTimeout(() => {
-          selection.classList.add('hidden');
-
-          if (side === 'Groom') {
-            groomFlow.classList.remove('hidden');
-            brideFlow.classList.add('hidden');
-            weddingDate = new Date('2026-07-19T11:30:00');
-            const compEl = document.getElementById('bestComplimentsText');
-            if (compEl) compEl.innerHTML = 'Khaleef J. S &amp; Khalid J. S.';
+        function toggleGuests(show) {
+          const gw = document.getElementById('guestsWrapper');
+          if (show) {
+            gw.classList.remove('hidden');
           } else {
-            brideFlow.classList.remove('hidden');
-            groomFlow.classList.add('hidden');
-            weddingDate = new Date('2026-07-19T11:30:00');
-            const compEl = document.getElementById('bestComplimentsText');
-            if (compEl) compEl.innerHTML = 'Jasmine &amp; Amal';
+            gw.classList.add('hidden');
+          }
+        }
+
+        function setWish(msg) {
+          document.getElementById('wishText').value = msg;
+          updateCount();
+          playSound('select');
+
+          // Highlight effect
+          const tx = document.getElementById('wishText');
+          tx.style.borderColor = 'var(--gold)';
+          setTimeout(() => tx.style.borderColor = '', 1000);
+        }
+
+        function updateCount() {
+          document.getElementById('charCount').textContent = `${document.getElementById('wishText').value.length} / 300`;
+        }
+
+        function submitResponse() {
+          const name = document.getElementById('rsvpName').value.trim();
+          const attendance = document.querySelector('input[name="attendance"]:checked').value;
+          const guests = document.getElementById('rsvpGuests').value;
+          const wish = document.getElementById('wishText').value.trim();
+
+          if (!name) {
+            document.getElementById('rsvpName').focus();
+            document.getElementById('rsvpName').placeholder = 'Please enter your name ✍️';
+            return;
           }
 
-          // Reset scroll position and trigger reveals
-          window.scrollTo(0, 0);
-          document.querySelectorAll('.rv').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) el.classList.add('on');
+          const btn = document.getElementById('rsvpBtnSend');
+          const { x, y } = getCenter(btn);
+          spawnSparks(x, y);
+          playSound('send');
+
+          // Prepare unified message
+          let attendanceText = attendance === 'Yes'
+            ? `joyfully accepts (Guests: ${guests})`
+            : `regretfully declines`;
+
+          const sub = `Wedding Attendance: ${name} (${attendance})`;
+          const body = `Guest Name: ${name}\nSide: ${userSelectedSide}\nAttendance: ${attendanceText}\n\nMessage/Blessing:\n${wish || "No message left."}`;
+
+          // Optimistic UI Update
+          btn.innerHTML = '<span>Response Sent ♥</span>';
+          btn.style.pointerEvents = 'none';
+          btn.style.background = 'var(--sage)';
+          btn.style.boxShadow = 'none';
+          document.getElementById('sentMsg').style.display = 'block';
+
+          // Send to Flask Backend with tracking data
+          fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              subject: sub,
+              body: body,
+              name: name,
+              guests: guests,
+              side: userSelectedSide,
+              message: wish,
+              attendance: attendance
+            })
+          }).then(res => {
+            if (!res.ok) throw new Error('Server returned error');
+            return res.json();
+          }).then(data => {
+            console.log("Flask Response:", data);
+          }).catch(err => {
+            console.error("Fetch Error:", err);
+            alert("Oops! There was an error sending your response. Please check if the server is running.");
           });
-        }, 600);
-      }
-
-      function toggleMusic() {
-        const music = document.getElementById('bgMusic');
-        const icon = document.getElementById('musicIcon');
-        const status = document.getElementById('musicStatus');
-        if (music.paused) {
-          music.play();
-          icon.innerText = '🔊';
-          status.innerText = 'MUSIC ON';
-        } else {
-          music.pause();
-          icon.innerText = '🔈';
-          status.innerText = 'MUSIC OFF';
         }
-      }
 
-      // Attach click listener to overlay
-      const overlay = document.getElementById('envelopeOverlay');
-      if (overlay) {
-        overlay.addEventListener('click', openInvitation);
-      }
+        // ── SECURITY & DETERRENTS ──
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'PrintScreen') {
+            navigator.clipboard.writeText('');
+            alert("Screenshots are disabled on this page.");
+            e.preventDefault();
+          }
+          if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'S' || e.key === 'P')) {
+            e.preventDefault();
+          }
+        });
 
 
-      // ── CUSTOM CURSOR LOGIC ──
-      const cursor = document.createElement('div');
-      cursor.className = 'magic-cursor';
-      document.body.appendChild(cursor);
 
-      const cursorDot = document.createElement('div');
-      cursorDot.className = 'magic-cursor-dot';
-      document.body.appendChild(cursorDot);
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            document.body.style.opacity = '0';
+          } else {
+            document.body.style.opacity = '1';
+          }
+        });
 
-      document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
+        // ── ENVELOPE OPENING LOGIC ──
+        function openInvitation() {
+          console.log("Opening Invitation...");
+          const env = document.getElementById('envBox');
+          const overlay = document.getElementById('envelopeOverlay');
+          const selection = document.getElementById('selectionOverlay');
+          const music = document.getElementById('bgMusic');
+          const musicCtrl = document.getElementById('musicControl');
 
-        // Check if hovering over interactive elements
-        const target = e.target;
-        if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.hasAttribute('onclick') || target.closest('button')) {
-          cursor.classList.add('hover');
-        } else {
-          cursor.classList.remove('hover');
+          // Prevent double trigger if already animating
+          if (overlay.classList.contains('hearts-joining')) return;
+
+          // 1. Start music immediately (Interaction)
+          const openSfx = document.getElementById('openSound');
+          if (openSfx) {
+            openSfx.volume = 0.5;
+            openSfx.play().catch(e => console.log("SFX blocked"));
+          }
+
+          if (music) {
+            music.volume = 0.6;
+            const playPromise = music.play();
+
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                if (musicCtrl) musicCtrl.style.display = 'flex';
+              }).catch(e => {
+                console.log("Audio play blocked", e);
+              });
+            }
+          }
+
+          // Start hearts joining animation (slow motion)
+          overlay.classList.add('hearts-joining');
+
+          // After hearts join (2.5 seconds)
+          setTimeout(() => {
+            overlay.classList.add('hearts-merged');
+            triggerMagicSparks();
+
+            // Wait 0.8 seconds for the healed pulse/glow effect, then open the envelope
+            setTimeout(() => {
+              overlay.classList.add('interaction-started');
+
+              // Open flap
+              setTimeout(() => {
+                env.classList.add('env-open');
+              }, 800);
+
+              // Allow card to slide out
+              setTimeout(() => {
+                env.classList.add('env-revealing');
+              }, 1100);
+
+              // After card exits, show selection overlay
+              setTimeout(() => {
+                overlay.classList.add('hidden');
+                selection.classList.remove('hidden');
+              }, 3600);
+
+            }, 800);
+
+          }, 2500);
         }
-      });
 
-      document.addEventListener('mousedown', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
-      });
 
-      document.addEventListener('mouseup', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      });
-    </script>
+        function triggerMagicSparks() {
+          const container = document.getElementById('sparksContainer');
+          if (!container) return;
+
+          // Create Sparks
+          for (let i = 0; i < 70; i++) {
+            const s = document.createElement('div');
+            s.className = 'spark';
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 150 + Math.random() * 450;
+            s.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+            s.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+            s.style.left = '50%';
+            s.style.top = '50%';
+            s.style.width = s.style.height = `${3 + Math.random() * 5}px`;
+            s.style.animationDelay = `${Math.random() * 0.5}s`;
+            container.appendChild(s);
+            setTimeout(() => s.remove(), 2500);
+          }
+
+          // Create Stars
+          const starIcons = ['⭐', '✨', '🌟', '✴️', '💫'];
+          for (let i = 0; i < 45; i++) {
+            const star = document.createElement('div');
+            star.className = 'magic-star';
+            star.innerHTML = starIcons[Math.floor(Math.random() * starIcons.length)];
+            const angle = Math.random() * Math.PI * 2;
+            const dist1 = 80 + Math.random() * 200;
+            const dist2 = 300 + Math.random() * 600;
+
+            star.style.setProperty('--tx', `${Math.cos(angle) * dist1}px`);
+            star.style.setProperty('--ty', `${Math.sin(angle) * dist1}px`);
+            star.style.setProperty('--tx2', `${Math.cos(angle) * dist2}px`);
+            star.style.setProperty('--ty2', `${Math.sin(angle) * dist2}px`);
+
+            star.style.left = '50%';
+            star.style.top = '50%';
+            star.style.fontSize = `${16 + Math.random() * 14}px`;
+            star.style.animationDelay = `${Math.random() * 0.4}s`;
+            container.appendChild(star);
+            setTimeout(() => star.remove(), 2500);
+          }
+        }
+
+        function selectSide(side) {
+          userSelectedSide = side === 'Groom' ? "Muhammed side" : "Afna side";
+          console.log("Side selected:", side);
+          const selection = document.getElementById('selectionOverlay');
+          const groomFlow = document.getElementById('groomFlow');
+          const brideFlow = document.getElementById('brideFlow');
+
+          if (!selection || !groomFlow || !brideFlow) return;
+
+          playSound('select');
+          selection.style.opacity = '0';
+
+          setTimeout(() => {
+            selection.classList.add('hidden');
+
+            if (side === 'Groom') {
+              groomFlow.classList.remove('hidden');
+              brideFlow.classList.add('hidden');
+              weddingDate = new Date('2026-07-19T11:30:00');
+              const compEl = document.getElementById('bestComplimentsText');
+              if (compEl) compEl.innerHTML = 'Khaleef J. S &amp; Khalid J. S.';
+            } else {
+              brideFlow.classList.remove('hidden');
+              groomFlow.classList.add('hidden');
+              weddingDate = new Date('2026-07-19T11:30:00');
+              const compEl = document.getElementById('bestComplimentsText');
+              if (compEl) compEl.innerHTML = 'Jasmine &amp; Amal';
+            }
+
+            // Reset scroll position and trigger reveals
+            window.scrollTo(0, 0);
+            document.querySelectorAll('.rv').forEach(el => {
+              const rect = el.getBoundingClientRect();
+              if (rect.top < window.innerHeight) el.classList.add('on');
+            });
+          }, 600);
+        }
+
+        function toggleMusic() {
+          const music = document.getElementById('bgMusic');
+          const icon = document.getElementById('musicIcon');
+          const status = document.getElementById('musicStatus');
+          if (music.paused) {
+            music.play();
+            icon.innerText = '🔊';
+            status.innerText = 'MUSIC ON';
+          } else {
+            music.pause();
+            icon.innerText = '🔈';
+            status.innerText = 'MUSIC OFF';
+          }
+        }
+
+        // Attach click listener to overlay
+        const overlay = document.getElementById('envelopeOverlay');
+        if (overlay) {
+          overlay.addEventListener('click', openInvitation);
+        }
+
+
+        // ── CUSTOM CURSOR LOGIC ──
+        const cursor = document.createElement('div');
+        cursor.className = 'magic-cursor';
+        document.body.appendChild(cursor);
+
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'magic-cursor-dot';
+        document.body.appendChild(cursorDot);
+
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+          cursorDot.style.left = e.clientX + 'px';
+          cursorDot.style.top = e.clientY + 'px';
+
+          // Check if hovering over interactive elements
+          const target = e.target;
+          if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.hasAttribute('onclick') || target.closest('button')) {
+            cursor.classList.add('hover');
+          } else {
+            cursor.classList.remove('hover');
+          }
+        });
+
+        document.addEventListener('mousedown', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+        });
+
+        document.addEventListener('mouseup', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+      </script>
 </body>
 
 </html>
