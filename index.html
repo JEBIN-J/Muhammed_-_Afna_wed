@@ -1463,16 +1463,11 @@
         0 15px 40px rgba(0, 0, 0, 0.1),
         inset 0 0 40px rgba(212, 175, 55, 0.1);
       transform-style: preserve-3d;
-      /* Permanent 3D Tilt */
-      transform: rotateX(12deg) rotateY(-8deg) rotateZ(1deg);
+      /* Normal orientation by default (no 3D tilt) */
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
       transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       overflow: hidden;
       cursor: pointer;
-    }
-
-    .env-box:hover {
-      /* Interactive tilt on hover */
-      transform: rotateX(5deg) rotateY(0deg) rotateZ(0deg) scale(1.02);
     }
 
     .env-box.env-revealing {
