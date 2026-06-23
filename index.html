@@ -1357,8 +1357,8 @@
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      color: #ffffff; /* White center for high brightness */
-      text-shadow: 0 0 4px #ffffff, 0 0 10px #ffd700, 0 0 20px #ffae00, 0 0 30px #ff8800; /* Intense golden fire glow */
+      color: #ffd700; /* Full bright metallic gold */
+      text-shadow: 0 0 4px #ffd700, 0 0 10px #ffb800, 0 0 20px #ff8c00; /* Glowing gold/orange fire */
       font-weight: bold;
     }
 
@@ -3427,7 +3427,7 @@
 
             const angle = (Math.PI * 2 / count) * i + (Math.random() - .5);
             const dist = 60 + Math.random() * 100; // Slightly smaller radius too
-            const size = 15 + Math.random() * 15; // Smaller sparks (15-30px)
+            const size = 10 + Math.random() * 32; // Highly varied sizes (10px to 42px)
 
             // Use absolute positioning relative to the entire document
             s.style.left = x + 'px';
