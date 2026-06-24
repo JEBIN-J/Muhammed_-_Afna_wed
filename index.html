@@ -537,7 +537,7 @@
 
     /* ── MUSIC BAR ── */
     .music-bar {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(12, 60, 36, 0.96);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 12px 18px;
@@ -548,20 +548,20 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(17, 56, 33, 0.08);
+      border-bottom: 2px solid #061c10;
     }
 
     .music-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(17, 56, 33, .04);
-      border: 1px solid rgba(17, 56, 33, .15);
-      color: var(--cream);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      color: #fefaf0;
       padding: 8px 16px;
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 3px;
       text-transform: uppercase;
       cursor: pointer;
@@ -572,9 +572,9 @@
 
     .music-btn:hover,
     .music-btn:active {
-      background: rgba(17, 56, 33, .08);
+      background: rgba(255, 255, 255, 0.15);
       border-color: var(--gold);
-      color: var(--gold-light);
+      color: var(--gold);
     }
 
     .music-waves {
@@ -586,7 +586,7 @@
 
     .wave-bar {
       width: 2.5px;
-      background: var(--mint);
+      background: var(--gold);
       border-radius: 2px;
       opacity: 0;
       transition: opacity .3s;
@@ -636,7 +636,8 @@
     .music-label {
       font-size: 11px;
       letter-spacing: 2px;
-      color: rgba(116, 166, 141, .35);
+      color: var(--mint);
+      opacity: 0.85;
       text-transform: uppercase;
       display: none;
     }
@@ -2166,12 +2167,12 @@
 
     #envelopeOverlay.hearts-joining .heart-half-left {
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-70%, -50%) rotate(-10deg);
     }
 
     #envelopeOverlay.hearts-joining .heart-half-right {
       right: 50%;
-      transform: translate(50%, -50%);
+      transform: translate(70%, -50%) rotate(10deg);
     }
 
     /* Hearts Merged/Healed Stage (Pulse and Glow) */
@@ -2182,37 +2183,37 @@
 
     @keyframes heartHealedPulse {
       0% {
-        transform: translate(var(--x-offset, -50%), -50%) scale(1);
+        transform: var(--transform-base) scale(1);
         filter: drop-shadow(0 0 15px rgba(255, 42, 95, 0.7));
       }
 
       100% {
-        transform: translate(var(--x-offset, -50%), -50%) scale(1.1);
+        transform: var(--transform-base) scale(1.1);
         filter: drop-shadow(0 0 35px rgba(255, 42, 95, 1)) drop-shadow(0 0 18px #d4af37);
       }
     }
 
     #envelopeOverlay.hearts-merged .heart-half-left {
-      --x-offset: -50%;
+      --transform-base: translate(-70%, -50%) rotate(-10deg);
     }
 
     #envelopeOverlay.hearts-merged .heart-half-right {
-      --x-offset: 50%;
+      --transform-base: translate(70%, -50%) rotate(10deg);
     }
 
     /* Envelope Opened Stage (Hearts fly up and fade out) */
     #envelopeOverlay.interaction-started .heart-half {
-      transform: translate(var(--x-offset, -50%), -180%) scale(0.4);
+      transform: var(--transform-fly) scale(0.4);
       opacity: 0;
       transition: transform 1.5s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease;
     }
 
     #envelopeOverlay.interaction-started .heart-half-left {
-      --x-offset: -50%;
+      --transform-fly: translate(-70%, -180%) rotate(-25deg);
     }
 
     #envelopeOverlay.interaction-started .heart-half-right {
-      --x-offset: 50%;
+      --transform-fly: translate(70%, -180%) rotate(25deg);
     }
 
     /* Hide Guide Hand and Hint during joining */
@@ -2635,7 +2636,7 @@
       </defs>
     </svg>
 
-    <!-- Broken Heart Halves -->
+    <!-- Joined Whole Hearts -->
     <svg class="heart-half heart-half-left" id="heartLeft" viewBox="0 0 100 100">
       <defs>
         <!-- 3D radial gradient for a polished ruby-gem look -->
@@ -2656,10 +2657,10 @@
           <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#d4af37" flood-opacity="0.8" />
         </filter>
       </defs>
-      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z"
+      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 C 65,75 85,55 85,35 C 85,10 65,5 50,20 Z"
         fill="url(#heartGradLeft)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
       <!-- Letter M for Muhammed -->
-      <text x="34" y="52" dominant-baseline="central" class="heart-letter">M</text>
+      <text x="50" y="52" dominant-baseline="central" class="heart-letter">M</text>
     </svg>
 
     <svg class="heart-half heart-half-right" id="heartRight" viewBox="0 0 100 100">
@@ -2672,10 +2673,10 @@
           <stop offset="100%" style="stop-color:#40000a;stop-opacity:1" />
         </radialGradient>
       </defs>
-      <path d="M 50,20 C 65,5 85,10 85,35 C 85,55 65,75 50,90 L 47,75 L 54,62 L 46,48 L 53,35 L 47,25 L 50,20 Z"
+      <path d="M 50,20 C 35,5 15,10 15,35 C 15,55 35,75 50,90 C 65,75 85,55 85,35 C 85,10 65,5 50,20 Z"
         fill="url(#heartGradRight)" stroke="url(#goldStrokeGrad)" stroke-width="1.8" filter="url(#goldGlow)" />
       <!-- Letter A for Afna -->
-      <text x="66" y="52" dominant-baseline="central" class="heart-letter">A</text>
+      <text x="50" y="52" dominant-baseline="central" class="heart-letter">A</text>
     </svg>
 
     <div class="env-wrapper">
@@ -2816,9 +2817,8 @@
     </div>
   </div>
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="images/AUD-20260502-WA0008.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Hidden YouTube Player Container -->
+  <div id="ytPlayer" style="position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; z-index: -9999;"></div>
 
   <!-- Magical Opening Sound Effect -->
   <audio id="openSound" preload="auto">
@@ -3448,6 +3448,99 @@
 
 
       <script>
+        // ── YOUTUBE MUSIC PLAYER INTEGRATION ──
+        (function() {
+          var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        })();
+
+        var ytPlayer;
+        window.onYouTubeIframeAPIReady = function() {
+          ytPlayer = new YT.Player('ytPlayer', {
+            height: '1',
+            width: '1',
+            videoId: '5FU5j_DvZPg',
+            playerVars: {
+              'autoplay': 0,
+              'loop': 1,
+              'playlist': '5FU5j_DvZPg',
+              'controls': 0,
+              'disablekb': 1,
+              'fs': 0,
+              'rel': 0,
+              'showinfo': 0,
+              'iv_load_policy': 3,
+              'mute': 0,
+              'start': 10
+            },
+            events: {
+              'onReady': function(event) {
+                console.log("YouTube Player Ready");
+              },
+              'onStateChange': function(event) {
+                if (event.data === 1 && typeof ytPlayer.getCurrentTime === 'function' && ytPlayer.getCurrentTime() < 10) {
+                  ytPlayer.seekTo(10, true);
+                }
+              }
+            }
+          });
+        };
+
+        // Define virtual bgMusic object to intercept DOM calls
+        const virtualMusic = {
+          play: function() {
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+              if (typeof ytPlayer.getCurrentTime === 'function' && ytPlayer.getCurrentTime() < 10) {
+                ytPlayer.seekTo(10, true);
+              }
+              ytPlayer.playVideo();
+            }
+            this.paused = false;
+            const bar = document.getElementById('musicBar');
+            if (bar) bar.classList.add('playing');
+            return Promise.resolve();
+          },
+          pause: function() {
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+              ytPlayer.pauseVideo();
+            }
+            this.paused = true;
+            const bar = document.getElementById('musicBar');
+            if (bar) bar.classList.remove('playing');
+          },
+          load: function() {
+            // no-op
+          },
+          paused: true,
+          set volume(val) {
+            if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
+              ytPlayer.setVolume(val * 100);
+            }
+          },
+          get volume() {
+            if (ytPlayer && typeof ytPlayer.getVolume === 'function') {
+              return ytPlayer.getVolume() / 100;
+            }
+            return 0.6;
+          }
+        };
+
+        // Intercept document.getElementById('bgMusic')
+        Object.defineProperty(document, 'getElementById', {
+          value: (function(original) {
+            return function(id) {
+              if (id === 'bgMusic') {
+                return virtualMusic;
+              }
+              return original.apply(this, arguments);
+            };
+          })(document.getElementById),
+          configurable: true,
+          writable: true
+        });
+
         // ── FIREFLIES CANVAS ──
         (function () {
           const canvas = document.getElementById('fireflies');
