@@ -2914,7 +2914,7 @@
   </div>
 
   <!-- Hidden YouTube Player Container -->
-  <div id="ytPlayer" style="position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; z-index: -9999;"></div>
+  <div id="ytPlayer" style="position: absolute; left: -9999px; top: 0; width: 300px; height: 200px; opacity: 0.01; pointer-events: none; z-index: -9999;"></div>
 
   <!-- Magical Opening Sound Effect -->
   <audio id="openSound" preload="auto">
@@ -3555,8 +3555,8 @@
         var ytPlayer;
         window.onYouTubeIframeAPIReady = function() {
           ytPlayer = new YT.Player('ytPlayer', {
-            height: '1',
-            width: '1',
+            height: '200',
+            width: '300',
             videoId: '5FU5j_DvZPg',
             playerVars: {
               'autoplay': 0,
@@ -3569,7 +3569,8 @@
               'showinfo': 0,
               'iv_load_policy': 3,
               'mute': 0,
-              'start': 10
+              'start': 10,
+              'playsinline': 1
             },
             events: {
               'onReady': function(event) {
@@ -3590,6 +3591,9 @@
             if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
               if (typeof ytPlayer.getCurrentTime === 'function' && ytPlayer.getCurrentTime() < 10) {
                 ytPlayer.seekTo(10, true);
+              }
+              if (typeof ytPlayer.unMute === 'function') {
+                ytPlayer.unMute();
               }
               ytPlayer.playVideo();
             }
@@ -4133,15 +4137,12 @@
 
         if (overlay) {
           overlay.addEventListener('click', handleEnvelopeOpen);
-          overlay.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
         }
         if (envBox) {
           envBox.addEventListener('click', handleEnvelopeOpen);
-          envBox.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
         }
         if (envSeal) {
           envSeal.addEventListener('click', handleEnvelopeOpen);
-          envSeal.addEventListener('touchstart', handleEnvelopeOpen, { passive: true });
         }
 
 
