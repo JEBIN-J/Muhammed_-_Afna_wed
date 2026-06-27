@@ -2377,6 +2377,91 @@
       }
     }
 
+    /* ── COUPLE IMAGES ANIMATION STYLES ── */
+    .couple-images-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: min(4vw, 30px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.3, 1), transform 1.5s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
+    .couple-images-container.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .couple-images-container.move-up {
+      opacity: 0;
+      transform: translate(-50%, -150%) scale(0.5);
+      transition: opacity 1.5s cubic-bezier(0.25, 1, 0.3, 1), transform 1.5s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
+    .couple-image-frame {
+      width: min(35vw, 170px);
+      height: min(50vw, 240px);
+      border-radius: min(4vw, 20px);
+      border: 2px solid var(--gold);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.3);
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(17, 63, 39, 0.7) 0%, rgba(6, 28, 16, 0.8) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
+    .couple-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
+    .couple-image-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .couple-image-frame.left-frame {
+      transform: rotate(-4deg);
+    }
+
+    .couple-image-frame.right-frame {
+      transform: rotate(4deg);
+    }
+
+    .couple-images-container.show .couple-image-frame.left-frame:hover {
+      transform: rotate(-1deg) scale(1.05);
+      z-index: 10;
+    }
+
+    .couple-images-container.show .couple-image-frame.right-frame:hover {
+      transform: rotate(1deg) scale(1.05);
+      z-index: 10;
+    }
+
+    /* Hide hearts when images are showing */
+    #envelopeOverlay.show-images .heart-half {
+      opacity: 0 !important;
+      transform: scale(0.2) !important;
+      transition: opacity 1.2s ease, transform 1.2s ease !important;
+    }
+
     /* Hide page initially (Revealed by Envelope) */
     .page {
       opacity: 1;
@@ -2788,6 +2873,17 @@
 
       </div>
     </div>
+
+    <!-- Couple Images Portrait Frames -->
+    <div id="coupleImagesContainer" class="couple-images-container">
+      <div class="couple-image-frame left-frame">
+        <img src="images/WhatsApp%20Image%202026-06-17%20at%2023.10.14-Photoroom.png" alt="Afna">
+      </div>
+      <div class="couple-image-frame right-frame">
+        <img src="images/WhatsApp%20Image%202026-06-10%20at%2018.00.05-Photoroom.png" alt="Muhammed">
+      </div>
+    </div>
+
     <div class="env-hint">✨ Click the Seal to Open ✨</div>
 
     <!-- Guiding Hand -->
@@ -3882,25 +3978,43 @@
             overlay.classList.add('hearts-merged');
             triggerMagicSparks();
 
-            // Wait 0.8 seconds for the healed pulse/glow effect, then open the envelope
+            // Wait 0.8 seconds for the healed pulse/glow effect, then show the couple images
             setTimeout(() => {
-              overlay.classList.add('interaction-started');
+              overlay.classList.add('show-images');
+              const coupleImages = document.getElementById('coupleImagesContainer');
+              if (coupleImages) {
+                coupleImages.classList.add('show');
+              }
 
-              // Open flap
+              // Let the images stay in the center for 3.0 seconds, then start moving up and fading out
               setTimeout(() => {
-                env.classList.add('env-open');
-              }, 800);
+                if (coupleImages) {
+                  coupleImages.classList.add('move-up');
+                }
 
-              // Allow card to slide out
-              setTimeout(() => {
-                env.classList.add('env-revealing');
-              }, 1100);
+                // Wait 1.5 seconds for the couple images to fully slide up and hide, then open envelope
+                setTimeout(() => {
+                  overlay.classList.add('interaction-started');
 
-              // After card exits, show selection overlay
-              setTimeout(() => {
-                overlay.classList.add('hidden');
-                selection.classList.remove('hidden');
-              }, 4800);
+                  // Open flap
+                  setTimeout(() => {
+                    env.classList.add('env-open');
+                  }, 800);
+
+                  // Allow card to slide out
+                  setTimeout(() => {
+                    env.classList.add('env-revealing');
+                  }, 1100);
+
+                  // After card exits, show selection overlay
+                  setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    selection.classList.remove('hidden');
+                  }, 4800);
+
+                }, 1500);
+
+              }, 3000);
 
             }, 800);
 

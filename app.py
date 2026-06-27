@@ -121,4 +121,4 @@ def handle_email():
         return jsonify({"status": "error", "message": "Failed to send email"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5000)
